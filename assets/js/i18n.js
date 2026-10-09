@@ -9,7 +9,7 @@ window.SHOE_I18N = {
     'meta.title': 'ShoeTracker – Laufschuh-Kilometerzähler & Mileage-Tracker',
     'meta.description': 'ShoeTracker zählt die Kilometer deiner Laufschuhe, warnt vor Verschleiß und funktioniert offline. Installierbare PWA, alle Daten bleiben auf deinem Gerät – ohne Konto, ohne Tracking.',
 
-    'app.subtitle': 'Laufschuh-Manager',
+    'app.subtitle': 'Simply. Track. Runningshoes.',
     'install.label': 'App installieren',
 
     'onb.title': 'Willkommen bei ShoeTracker',
@@ -21,7 +21,7 @@ window.SHOE_I18N = {
     'onb.s2.title': 'Läufe eintragen',
     'onb.s2.text': 'Nach jedem Lauf auf der Schuhkarte „+ Lauf“ antippen, Distanz und Datum erfassen – fertig.',
     'onb.s3.title': 'Verschleiß im Blick behalten',
-    'onb.s3.text': 'Ab 75 Prozent steht der Schuh auf „Demnächst fällig“, ab 90 auf „Verschlissen“.',
+    'onb.s3.text': 'Bis genau 25 Prozent ist der Schuh „Frisch“, ab 25 bis genau 75 Prozent „Gut“, ab 75 bis genau 90 Prozent „Bald fällig“, ab 90 Prozent „Verschlissen“.',
     'onb.privacy': 'Alles bleibt auf diesem Gerät. Kein Konto, kein Server, keine Tracker – die App sendet nichts.',
     'onb.start': 'Ersten Schuh hinzufügen',
 
@@ -29,7 +29,8 @@ window.SHOE_I18N = {
     'shoes.filter': 'Schuhe filtern',
     'filter.active': 'Aktiv',
     'filter.archived': 'Archiv',
-    'shoes.reorderHint': 'Zum Sortieren den Griff gedrückt halten und ziehen – oder mit der Tastatur fokussieren und Pfeil hoch/runter drücken.',
+    'shoes.reorderHint': 'Nutze den + Button zum Hinzufügen von Läufen. Drücke auf das Emoticon zum Bearbeiten von Schuhen und zum Sortieren halte den Griff gedrückt und ziehe - oder fukussiere mit der Tastatur und drücke die Pfeiltasten hoch/runter.',
+    'shoes.reorderHintArchive': 'Drücke auf das Emoticon zum Reaktivieren von Schuhen und zum Sortieren halte den Griff gedrückt und ziehe - oder fukussiere mit der Tastatur und drücke die Pfeiltasten hoch/runter.',
     'shoes.add': 'Schuhe hinzufügen',
     'empty.title': 'Keine Schuhe vorhanden',
     'empty.text': 'Füge Laufschuhe hinzu, um Laufleistung und Verschleiß zu tracken.',
@@ -42,8 +43,9 @@ window.SHOE_I18N = {
     'shoe.unnamed': 'Unbenannter Schuh',
     'shoe.logRun': 'Lauf für {name} eintragen',
     'shoe.logRunShort': 'Lauf',
+    'wear.fresh': 'Frisch',
     'wear.ok': 'Gut',
-    'wear.warn': 'Demnächst fällig',
+    'wear.warn': 'Bald fällig',
     'wear.worn': 'Verschlissen',
 
     'log.distance': 'Distanz',
@@ -186,7 +188,7 @@ window.SHOE_I18N = {
     'meta.title': 'ShoeTracker – Running Shoe Mileage Tracker',
     'meta.description': 'ShoeTracker counts the kilometres on your running shoes, warns you before they wear out and works offline. Installable PWA, all data stays on your device – no account, no tracking.',
 
-    'app.subtitle': 'Running shoe manager',
+    'app.subtitle': 'Simply. Track. Runningshoes.',
     'install.label': 'Install app',
 
     'onb.title': 'Welcome to ShoeTracker',
@@ -198,7 +200,7 @@ window.SHOE_I18N = {
     'onb.s2.title': 'Log your runs',
     'onb.s2.text': 'After each run, tap “+ Log run” on the shoe card and enter distance and date – done.',
     'onb.s3.title': 'Keep an eye on wear',
-    'onb.s3.text': 'From 75 percent a shoe is marked “Due soon”, from 90 “Worn out”.',
+    'onb.s3.text': 'Up to exactly 25 percent a shoe is marked "Fresh", from 25 to exactly 75 percent "Good", from 75 to exactly 90 percent "Due soon", from 90 percent "Worn out".',
     'onb.privacy': 'Everything stays on this device. No account, no server, no trackers – the app sends nothing.',
     'onb.start': 'Add your first shoe',
 
@@ -206,7 +208,8 @@ window.SHOE_I18N = {
     'shoes.filter': 'Filter shoes',
     'filter.active': 'Active',
     'filter.archived': 'Archive',
-    'shoes.reorderHint': 'To reorder, press and hold the handle and drag – or focus it with the keyboard and press arrow up/down.',
+    'shoes.reorderHint': 'Use the + button to add a run. Press the emoji to edit shoes and to sort press and hold the handle and drag - or focus with the keyboard and press the arrow keys up/down.',
+    'shoes.reorderHintArchive': 'Press the emoji to reactivate shoes and to sort press and hold the handle and drag - or focus with the keyboard and press the arrow keys up/down.',
     'shoes.add': 'Add shoes',
     'empty.title': 'No shoes yet',
     'empty.text': 'Add running shoes to track mileage and wear.',
@@ -219,6 +222,7 @@ window.SHOE_I18N = {
     'shoe.unnamed': 'Unnamed shoe',
     'shoe.logRun': 'Log run for {name}',
     'shoe.logRunShort': 'Log run',
+    'wear.fresh': 'Fresh',
     'wear.ok': 'Good',
     'wear.warn': 'Due soon',
     'wear.worn': 'Worn out',
