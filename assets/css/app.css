@@ -642,6 +642,7 @@ textarea.input { min-height: 72px; resize: vertical; }
 }
 .empty__title { font-size: 1.05rem; font-weight: 600; }
 .empty__text { max-width: 28ch; font-size: 0.85rem; color: var(--on-surface-variant); }
+.empty__text--hint { font-size: 0.75rem; }
 
 /* ---------- Bottom navigation ---------- */
 .bottom-nav {
