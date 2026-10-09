@@ -1,0 +1,44 @@
+{
+  "id": "./",
+  "name": "ShoeTracker – Laufschuh-Kilometerzähler",
+  "short_name": "ShoeTracker",
+  "description": "Kilometer deiner Laufschuhe tracken und Verschleiß im Blick behalten. Offline nutzbar, alle Daten bleiben auf dem Gerät.",
+  "lang": "de",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#161212",
+  "theme_color": "#c8001a",
+  "categories": ["health", "fitness", "sports", "utilities"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Statistik",
+      "short_name": "Statistik",
+      "url": "./#statistik"
+    }
+  ]
+}

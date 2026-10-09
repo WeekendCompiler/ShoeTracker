@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>ShoeTracker – Vorlage für das Sharing-Bild (1200×630)</title>
+<style>
+/* Source for assets/og/og-image.png (1200×630). Render with:
+   chrome --headless --screenshot --window-size=1200,630 tools/og-image.html
+   INFO: Deliberately minimal – previews are often shown only ~300 px wide.
+   WARNING: Text colours are checked for WCAG AA against the gradient; re-check when changing them. */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --surface: #161212;
+  --on-surface: #ede0df;
+  --on-surface-variant: #d8c2c0;
+  --primary: #ff8a85;
+  --font: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system,
+    "Helvetica Neue", Roboto, "Noto Sans", Arial, sans-serif;
+}
+
+html, body { width: 1200px; height: 630px; }
+body {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+  padding: 0 96px;
+  background: radial-gradient(circle at 18% 30%, rgba(200, 0, 26, 0.38), transparent 55%), var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+.mark {
+  flex: none;
+  width: 300px; height: 300px;
+  display: grid;
+  place-items: center;
+  border-radius: 68px;
+  background: #000000;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 24px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+.mark img { width: 300px; height: 300px; }
+
+.name { font-size: 88px; font-weight: 800; letter-spacing: -2px; line-height: 1; }
+.claim { margin-top: 24px; font-size: 46px; font-weight: 600; line-height: 1.2; color: var(--on-surface-variant); }
+.claim em { font-style: normal; color: var(--primary); }
+.url { margin-top: 40px; font-size: 30px; font-weight: 600; color: var(--primary); }
+</style>
+</head>
+<body>
+  <div class="mark"><img src="../assets/icons/icon-512.png" alt=""></div>
+  <div>
+    <div class="name">ShoeTracker</div>
+    <p class="claim">Kilometer deiner <em>Laufschuhe</em><br>im Blick – offline &amp; privat.</p>
+    <div class="url">weekendcompiler.github.io/ShoeTracker</div>
+  </div>
+</body>
+</html>
