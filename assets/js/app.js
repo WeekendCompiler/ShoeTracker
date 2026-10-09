@@ -16,7 +16,8 @@
   var LANG_KEY = 'shoe_tracker_lang';
   var UNIT_KEY = 'shoe_tracker_unit';
   var CURRENCY_KEY = 'shoe_tracker_currency';
-  var ALL_KEYS = [STORAGE_KEY, THEME_KEY, ONBOARD_KEY, LANG_KEY, UNIT_KEY, CURRENCY_KEY];
+  var WEAR_ZONES_KEY = 'shoe_tracker_wear_zones';
+  var ALL_KEYS = [STORAGE_KEY, THEME_KEY, ONBOARD_KEY, LANG_KEY, UNIT_KEY, CURRENCY_KEY, WEAR_ZONES_KEY];
   // WARNING: Storage keys, backup format and hash routes are public API for
   // existing installs – renaming any of them loses user data or breaks links.
   var SVG_NS = 'http://www.w3.org/2000/svg';
@@ -53,6 +54,7 @@
   var lang = 'de';
   var unit = 'km';
   var currency = 'EUR';
+  var wearZones = { fresh: 25, ok: 75, warn: 90 };
   var numberFormat, numberFormat1, priceFormat, dateFormat;
 
   function setupFormats() {
@@ -130,10 +132,73 @@
     return detected;
   }
 
+  function normalizeWearZones(value) {
+    var source = value && typeof value === 'object' ? value : {};
+    function boundedZone(candidate, minimum, maximum, fallback) {
+      var parsed = Number(candidate);
+      if (!Number.isFinite(parsed)) parsed = fallback;
+      return Math.min(Math.max(Math.round(parsed), minimum), maximum);
+    }
+    var fresh = boundedZone(source.fresh, 5, 85, 25);
+    var ok = boundedZone(source.ok, fresh + 5, 90, 75);
+    var warn = boundedZone(source.warn, ok + 5, 95, 90);
+    return { fresh: fresh, ok: ok, warn: warn };
+  }
+
+  function loadWearZones() {
+    var stored = storage.read(WEAR_ZONES_KEY);
+    if (!stored) return { fresh: 25, ok: 75, warn: 90 };
+    try {
+      return normalizeWearZones(JSON.parse(stored));
+    } catch (error) {
+      return { fresh: 25, ok: 75, warn: 90 };
+    }
+  }
+
+  function syncWearZoneControls() {
+    var freshInput = byId('wear-zone-fresh');
+    var okInput = byId('wear-zone-ok');
+    var warnInput = byId('wear-zone-warn');
+
+    freshInput.value = String(wearZones.fresh);
+    okInput.value = String(wearZones.ok);
+    warnInput.value = String(wearZones.warn);
+
+    byId('wear-zone-fresh-min').textContent = '0%';
+    byId('wear-zone-fresh-output').textContent = wearZones.fresh + '%';
+    byId('wear-zone-fresh-output-min').textContent = wearZones.fresh + '%';
+    byId('wear-zone-ok-output').textContent = wearZones.ok + '%';
+    byId('wear-zone-ok-output-min').textContent = wearZones.ok + '%';
+    byId('wear-zone-warn-output').textContent = wearZones.warn + '%';
+    byId('wear-zone-worn-output').textContent = wearZones.warn + '%';
+
+    byId('wear-zone-segment-fresh').style.width = wearZones.fresh + '%';
+    byId('wear-zone-segment-ok').style.width = (wearZones.ok - wearZones.fresh) + '%';
+    byId('wear-zone-segment-warn').style.width = (wearZones.warn - wearZones.ok) + '%';
+    byId('wear-zone-segment-worn').style.width = (100 - wearZones.warn) + '%';
+    byId('wear-zone-handle-fresh').style.left = wearZones.fresh + '%';
+    byId('wear-zone-handle-ok').style.left = wearZones.ok + '%';
+    byId('wear-zone-handle-warn').style.left = wearZones.warn + '%';
+  }
+
+  function updateWearZones(input) {
+    var next = {
+      fresh: input.name === 'wear-zone-fresh' ? Math.min(input.value, wearZones.ok - 5) : wearZones.fresh,
+      ok: input.name === 'wear-zone-ok' ? Math.min(Math.max(input.value, wearZones.fresh + 5), wearZones.warn - 5) : wearZones.ok,
+      warn: input.name === 'wear-zone-warn' ? Math.min(Math.max(input.value, wearZones.ok + 5), 95) : wearZones.warn
+    };
+    wearZones = normalizeWearZones(next);
+    storage.write(WEAR_ZONES_KEY, JSON.stringify(wearZones));
+    syncWearZoneControls();
+    if (ui.tab === 'shoes') renderShoes();
+    if (ui.tab === 'stats') renderStats();
+  }
+
   function loadSettings() {
     lang = detectLanguage();
     unit = detectUnit();
     currency = detectCurrency();
+    wearZones = loadWearZones();
     applySettings();
   }
 
@@ -184,6 +249,7 @@
     fields.unit.value = unit;
     fields.currency.value = currency;
     fields.theme.value = themeChoice();
+    syncWearZoneControls();
   }
 
   /** Stores and applies one setting the moment it changes in the settings dialog. */
@@ -454,7 +520,7 @@
     var rawPercent = maxKm > 0 ? (currentKm / maxKm) * 100 : 0;
     var percent = Math.min(rawPercent, 100);
     var displayPercent = Math.round(rawPercent);
-    var key = rawPercent >= 90 ? 'worn' : (rawPercent >= 75 ? 'warn' : (rawPercent >= 25 ? 'ok' : 'fresh'));
+    var key = rawPercent >= wearZones.warn ? 'worn' : (rawPercent >= wearZones.ok ? 'warn' : (rawPercent >= wearZones.fresh ? 'ok' : 'fresh'));
     return { percent: percent, displayPercent: displayPercent, key: key, label: t('wear.' + key) };
   }
 
@@ -1499,6 +1565,37 @@
     byId('settings-form').addEventListener('change', function (event) {
       changeSetting(event.target.name, event.target.value);
     });
+    byId('settings-form').addEventListener('input', function (event) {
+      if (event.target.hasAttribute('data-wear-zone')) updateWearZones(event.target);
+    });
+    var activeWearZoneInput = null;
+    var wearZonesPreview = byId('wear-zones-preview');
+    wearZonesPreview.addEventListener('pointerdown', function (event) {
+      if (event.button !== 0) return;
+      var rect = wearZonesPreview.getBoundingClientRect();
+      var value = Math.round(Math.min(Math.max((event.clientX - rect.left) / rect.width * 100, 0), 100));
+      var candidates = [
+        { input: byId('wear-zone-fresh'), value: wearZones.fresh },
+        { input: byId('wear-zone-ok'), value: wearZones.ok },
+        { input: byId('wear-zone-warn'), value: wearZones.warn }
+      ];
+      activeWearZoneInput = candidates.reduce(function (closest, candidate) {
+        return Math.abs(candidate.value - value) < Math.abs(closest.value - value) ? candidate : closest;
+      }).input;
+      wearZonesPreview.setPointerCapture(event.pointerId);
+      event.preventDefault();
+      activeWearZoneInput.value = String(value);
+      updateWearZones(activeWearZoneInput);
+    });
+    wearZonesPreview.addEventListener('pointermove', function (event) {
+      if (!activeWearZoneInput) return;
+      var rect = wearZonesPreview.getBoundingClientRect();
+      var value = Math.round(Math.min(Math.max((event.clientX - rect.left) / rect.width * 100, 0), 100));
+      activeWearZoneInput.value = String(value);
+      updateWearZones(activeWearZoneInput);
+    });
+    wearZonesPreview.addEventListener('pointerup', function () { activeWearZoneInput = null; });
+    wearZonesPreview.addEventListener('pointercancel', function () { activeWearZoneInput = null; });
     byId('settings-form').addEventListener('submit', function (event) { event.preventDefault(); });
 
     byId('confirm-ok').addEventListener('click', function () { settleConfirm(true); });

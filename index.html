@@ -651,7 +651,7 @@
     </div>
 
     <form class="form" id="settings-form">
-      <p class="hint" data-i18n="settings.saved">Änderungen greifen sofort und werden lokal auf deinem Gerät gespeichert. Kilometer und Meilen werden umgerechnet.</p>
+      <p class="hint" data-i18n="settings.saved">Änderungen greifen sofort und werden lokal auf deinem Gerät gespeichert. Du kannst sie jederzeit umstellen.</p>
       <fieldset class="segmented">
         <legend class="field__label" data-i18n="settings.language">Sprache</legend>
         <label><input type="radio" name="lang" value="de"><span lang="de">Deutsch</span></label>
@@ -662,6 +662,7 @@
         <legend class="field__label" data-i18n="settings.unit">Maßeinheit</legend>
         <label><input type="radio" name="unit" value="km"><span data-i18n="settings.km">Kilometer</span></label>
         <label><input type="radio" name="unit" value="mi"><span data-i18n="settings.mi">Meilen</span></label>
+        <p class="hint" data-i18n="settings.unitHint">Bereits eingegebene Werte werden umgerechnet.</p>
       </fieldset>
 
       <div class="field">
@@ -680,6 +681,59 @@
         </select>
         <p class="hint" id="currency-hint" data-i18n="settings.currencyHint">Bei Auswahl einer anderen Währung werden bereits gespeicherte Preise nicht umgerechnet. Es ändert sich nur die Anzeige der Währung.</p>
       </div>
+
+      <section class="wear-zones" aria-labelledby="wear-zones-title">
+        <h3 class="field__label" id="wear-zones-title" data-i18n="settings.wearZones">Verschleißbereiche</h3>
+        <div class="wear-zones__preview" id="wear-zones-preview">
+          <div class="wear-zones__track" aria-hidden="true">
+            <span class="wear-zones__segment wear-zones__segment--fresh" id="wear-zone-segment-fresh"></span>
+            <span class="wear-zones__segment wear-zones__segment--ok" id="wear-zone-segment-ok"></span>
+            <span class="wear-zones__segment wear-zones__segment--warn" id="wear-zone-segment-warn"></span>
+            <span class="wear-zones__segment wear-zones__segment--worn" id="wear-zone-segment-worn"></span>
+          </div>
+          <span class="wear-zones__handle wear-zones__handle--fresh" id="wear-zone-handle-fresh" aria-hidden="true"></span>
+          <span class="wear-zones__handle wear-zones__handle--ok" id="wear-zone-handle-ok" aria-hidden="true"></span>
+          <span class="wear-zones__handle wear-zones__handle--warn" id="wear-zone-handle-warn" aria-hidden="true"></span>
+          <input class="wear-zone__range wear-zone__range--fresh wear-zone__range--in-bar" type="range" id="wear-zone-fresh" name="wear-zone-fresh" min="0" max="100" value="25" step="5" data-wear-zone>
+          <input class="wear-zone__range wear-zone__range--ok wear-zone__range--in-bar" type="range" id="wear-zone-ok" name="wear-zone-ok" min="0" max="100" value="75" step="5" data-wear-zone>
+          <input class="wear-zone__range wear-zone__range--warn wear-zone__range--in-bar" type="range" id="wear-zone-warn" name="wear-zone-warn" min="0" max="100" value="90" step="5" data-wear-zone>
+        </div>
+        <p class="hint" data-i18n="settings.wearZonesHint">Du kannst die Grenzwerte für die Verschleißbereiche deiner Schuhe ändern. Verschiebe dazu die Slider oder belasse es bei der 25|75|90 Standarteinstellung (empfohlen).</p>
+        <div class="wear-zones__controls">
+          <div class="field">
+            <label class="wear-zone__label" for="wear-zone-fresh">
+              <span class="wear-zone__label-text">
+                <span class="badge badge--fresh" data-i18n="wear.fresh">Frisch</span>
+                <span class="wear-zone__range"><output id="wear-zone-fresh-min">0%</output> bis <output id="wear-zone-fresh-output" for="wear-zone-fresh">25%</output></span>
+              </span>
+            </label>
+          </div>
+          <div class="field">
+            <label class="wear-zone__label" for="wear-zone-ok">
+              <span class="wear-zone__label-text">
+                <span class="badge badge--ok" data-i18n="wear.ok">Gut</span>
+                <span class="wear-zone__range"><output id="wear-zone-fresh-output-min" for="wear-zone-fresh">25%</output> bis <output id="wear-zone-ok-output" for="wear-zone-ok">75%</output></span>
+              </span>
+            </label>
+          </div>
+          <div class="field">
+            <label class="wear-zone__label" for="wear-zone-warn">
+              <span class="wear-zone__label-text">
+                <span class="badge badge--warn" data-i18n="wear.warn">Bald fällig</span>
+                <span class="wear-zone__range"><output id="wear-zone-ok-output-min" for="wear-zone-ok">75%</output> bis <output id="wear-zone-warn-output" for="wear-zone-warn">90%</output></span>
+              </span>
+            </label>
+          </div>
+          <div class="field">
+            <div class="wear-zone__label">
+              <span class="wear-zone__label-text">
+                <span class="badge badge--worn" data-i18n="wear.worn">Verschlissen</span>
+                <span class="wear-zone__range"><span data-i18n="settings.wearZoneWorn">ab </span><output id="wear-zone-worn-output">90%</output></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <fieldset class="segmented">
         <legend class="field__label" data-i18n="settings.theme">Design</legend>
