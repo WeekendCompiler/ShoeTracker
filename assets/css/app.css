@@ -13,10 +13,10 @@
   --on-surface: #201a1a;
   --on-surface-variant: #524646;
 
-  --primary: #c8001a;
-  --on-primary: #ffffff;
-  --primary-container: #ffdad6;
-  --on-primary-container: #410003;
+  --primary: #ff8a85;
+  --on-primary: #5c0008;
+  --primary-container: #c8001a;
+  --on-primary-container: #ffffff;
 
   --outline: #857371;
   --outline-variant: #d8c2c0;
@@ -24,15 +24,18 @@
   --error: #b3261e;
   --error-container: #f9dedc;
 
-  --ok: #1e7a53;
-  --ok-bg: #d5f2e4;
-  --ok-fg: #0b4630;
-  --warn: #9a6400;
-  --warn-bg: #fdefcf;
-  --warn-fg: #4f3400;
-  --worn: #b3261e;
-  --worn-bg: #fadad7;
-  --worn-fg: #601410;
+  --ok: #4FC99A;
+  --ok-bg: #E3F7F0;
+  --ok-fg: #176A4D;
+  --fresh: #55A9D6;
+  --fresh-bg: #E4F3FA;
+  --fresh-fg: #176083;
+  --warn: #E5A83B;
+  --warn-bg: #FFF4DB;
+  --warn-fg: #795508;
+  --worn: #E36B6B;
+  --worn-bg: #FCE9E9;
+  --worn-fg: #8A3030;
 
   --scrim: rgba(32, 26, 26, 0.5);
   --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -73,15 +76,18 @@
   --error: #f2b8b5;
   --error-container: #8c1d18;
 
-  --ok: #62d3a4;
-  --ok-bg: #123d2c;
-  --ok-fg: #9ef2cb;
-  --warn: #efbe58;
-  --warn-bg: #43330a;
-  --warn-fg: #ffdf9e;
-  --worn: #f2b8b5;
-  --worn-bg: #4d1512;
-  --worn-fg: #ffdad6;
+  --ok: #4FC99A;
+  --ok-bg: #12392D;
+  --ok-fg: #79E2B5;
+  --fresh: #55A9D6;
+  --fresh-bg: #173444;
+  --fresh-fg: #86C8EB;
+  --warn: #E5A83B;
+  --warn-bg: #49330B;
+  --warn-fg: #F4C866;
+  --worn: #E36B6B;
+  --worn-bg: #4B1818;
+  --worn-fg: #F59A9A;
 
   --scrim: rgba(0, 0, 0, 0.62);
 }
@@ -108,15 +114,18 @@
     --error: #f2b8b5;
     --error-container: #8c1d18;
 
-    --ok: #62d3a4;
-    --ok-bg: #123d2c;
-    --ok-fg: #9ef2cb;
-    --warn: #efbe58;
-    --warn-bg: #43330a;
-    --warn-fg: #ffdf9e;
-    --worn: #f2b8b5;
-    --worn-bg: #4d1512;
-    --worn-fg: #ffdad6;
+    --ok: #4FC99A;
+    --ok-bg: #12392D;
+    --ok-fg: #79E2B5;
+    --fresh: #55A9D6;
+    --fresh-bg: #173444;
+    --fresh-fg: #86C8EB;
+    --warn: #E5A83B;
+    --warn-bg: #49330B;
+    --warn-fg: #F4C866;
+    --worn: #E36B6B;
+    --worn-bg: #4B1818;
+    --worn-fg: #F59A9A;
 
     --scrim: rgba(0, 0, 0, 0.62);
   }
@@ -272,7 +281,7 @@ html[data-i18n-pending] body { visibility: hidden; }
 .btn--outline { border-color: var(--outline-variant); color: var(--on-surface); }
 .btn--outline:hover:not(:disabled) { background: var(--surface-variant); }
 
-.btn--danger { border-color: var(--error); color: var(--error); }
+.btn--danger { border-color: #E36B6B; color: #E36B6B; }
 .btn--danger:hover:not(:disabled) { background: var(--error-container); }
 
 .btn--block { width: 100%; }
@@ -401,7 +410,10 @@ html[data-i18n-pending] body { visibility: hidden; }
   background: var(--surface-1);
   transition: border-color 0.15s, box-shadow 0.15s;
 }
-.shoe:hover { border-color: var(--primary); }
+.shoe--fresh:hover { border-color: var(--fresh); }
+.shoe--ok:hover { border-color: var(--ok); }
+.shoe--warn:hover { border-color: var(--warn); }
+.shoe--worn:hover { border-color: var(--worn); }
 .shoe.is-dragging {
   opacity: 0.6;
   box-shadow: var(--shadow-2);
@@ -476,6 +488,7 @@ html[data-i18n-pending] body { visibility: hidden; }
   font-weight: 600;
   white-space: nowrap;
 }
+.badge--fresh { background: var(--fresh-bg); color: var(--fresh-fg); }
 .badge--ok { background: var(--ok-bg); color: var(--ok-fg); }
 .badge--warn { background: var(--warn-bg); color: var(--warn-fg); }
 .badge--worn { background: var(--worn-bg); color: var(--worn-fg); }
@@ -543,6 +556,7 @@ html[data-i18n-pending] body { visibility: hidden; }
   background: var(--ok);
   transition: width 0.45s ease;
 }
+.meter--fresh .meter__bar { background: var(--fresh); }
 .meter--ok .meter__bar { background: var(--ok); }
 .meter--warn .meter__bar { background: var(--warn); }
 .meter--worn .meter__bar { background: var(--worn); }
@@ -664,7 +678,7 @@ textarea.input { min-height: 72px; resize: vertical; }
   cursor: pointer;
   transition: color 0.15s, background-color 0.15s;
 }
-.nav-tab[aria-selected="true"] { color: var(--primary); background: var(--surface-variant); }
+.nav-tab[aria-selected="true"] { color: #FB071A; background: var(--surface-variant); }
 
 /* ---------- Dialogs ---------- */
 .dialog {
