@@ -1,0 +1,25 @@
+# ShoeTracker
+
+Kostenloser Kilometerzähler für Laufschuhe: Paare anlegen, nach jedem Lauf die Distanz eintragen und pro Schuh Kilometerstand, Verschleiß in Prozent und Restlaufleistung sehen. Installierbare Progressive Web App, vollständig offline nutzbar, ohne Konto, ohne Server, ohne Tracking.
+
+Die App warnt ab 75 Prozent der eingestellten Laufleistung mit „Demnächst fällig“ und ab 90 Prozent mit „Verschlissen“. Die Grenze ist pro Schuh einstellbar und startet bei 800 Kilometern. Mehrere Paare lassen sich sortieren und ins Archiv verschieben, ohne ihre Historie zu verlieren.
+
+Alle Daten liegen ausschließlich im `localStorage` des Browsers (Schlüssel `schuh_tracker_data`, `schuh_tracker_theme`, `schuh_tracker_onboarded`, `schuh_tracker_lang`, `schuh_tracker_unit` und `schuh_tracker_currency`). Es gibt keinen Server, keine Anmeldung, keine Cloud und keine Analyse- oder Werbeskripte; die Seite lädt ausschließlich ihre eigenen Dateien. Backups exportiert man selbst als JSON (Wiedereinspielen möglich) oder als CSV; „Alle Daten von diesem Gerät löschen“ im Bereich Statistik entfernt alle Schlüssel wieder. Die Oberfläche gibt es auf Deutsch und Englisch (automatisch nach Systemsprache, umschaltbar), Distanzen in Kilometern oder Meilen und Preise in EUR, USD, CHF, GBP, JPY, SEK, NOK oder DKK (nur Anzeige, keine Umrechnung); FAQ und Datenschutzerklärung gibt es ebenfalls auf Deutsch und Englisch.
+
+## App
+
+- [ShoeTracker](https://weekendcompiler.github.io/ShoeTracker/): Die vollständige Anwendung als eine einzige HTML-Seite. Die Bereiche Schuhe und Statistik sind Tabs derselben URL (`#schuhe`, `#statistik`), keine eigenen Seiten; Läufe werden direkt auf der jeweiligen Schuhkarte eingetragen.
+- [Fragen & Antworten](https://weekendcompiler.github.io/ShoeTracker/faq.html): Haltbarkeit von Laufschuhen, Offline-Nutzung, Backup und Gerätewechsel, Kosten. Statische Seite, ohne JavaScript lesbar.
+- [Datenschutz](https://weekendcompiler.github.io/ShoeTracker/datenschutz.html): Welche Speicherschlüssel belegt werden, was nicht passiert (keine Cookies, keine Tracker) und wie sich alle Daten wieder löschen lassen.
+- [FAQ (English)](https://weekendcompiler.github.io/ShoeTracker/en/faq.html): Englische Fassung der Fragen & Antworten.
+- [Privacy (English)](https://weekendcompiler.github.io/ShoeTracker/en/privacy.html): Englische Fassung der Datenschutzerklärung; maßgeblich ist die deutsche.
+
+## Quellcode
+
+- [Repository auf GitHub](https://github.com/WeekendCompiler/ShoeTracker): Quelloffen, ohne Build-Schritt und ohne Abhängigkeiten.
+- [README](https://github.com/WeekendCompiler/ShoeTracker/blob/main/README.md): Aufbau der Dateien, Datenhaltung, Sicherheitsmodell (strikte CSP, kein `innerHTML`), lokales Starten und Hinweise zum Service-Worker-Update.
+
+## Optional
+
+- [Web App Manifest](https://weekendcompiler.github.io/ShoeTracker/manifest.webmanifest): Maschinenlesbare Metadaten zu Name, Beschreibung, Icons und Kategorien.
+- [sitemap.xml](https://weekendcompiler.github.io/ShoeTracker/sitemap.xml): Enthält die App sowie die Inhaltsseiten in beiden Sprachen – die Tabs der App sind nur Fragmente derselben URL.
