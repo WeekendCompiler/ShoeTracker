@@ -521,6 +521,7 @@
   function syncOnboarding() {
     var done = onboardingDone();
     onboardingEl.hidden = done;
+    byId('add-shoe-btn').hidden = !done || ui.tab !== 'shoes';
     // INFO: Mirrored on <html> so boot.js can hide the block before first paint next time.
     if (done) document.documentElement.dataset.onboarded = '1';
     return done;
@@ -713,7 +714,7 @@
       byId('panel-' + name).hidden = !selected;
     });
 
-    byId('add-shoe-btn').hidden = tab !== 'shoes';
+    byId('add-shoe-btn').hidden = tab !== 'shoes' || !onboardingDone();
 
     if (tab === 'shoes') renderShoes();
     if (tab === 'stats') renderStats();

@@ -249,7 +249,9 @@
 
   <!-- Statistics -->
   <section id="panel-stats" class="panel" role="tabpanel" aria-labelledby="tab-stats" tabindex="-1" hidden>
-    <h2 class="panel__title" data-i18n="stats.title">Statistik</h2>
+    <div class="panel__head">
+      <h2 class="panel__title" data-i18n="stats.title">Statistik</h2>
+    </div>
 
     <div class="stat-grid">
       <div class="stat">
@@ -633,14 +635,14 @@
 <dialog class="dialog" id="dialog-settings" aria-labelledby="settings-title">
   <div class="dialog__inner">
     <div class="dialog__head">
-      <h2 class="dialog__title" id="settings-title" data-i18n="settings.title">Einstellungen</h2>
+      <h2 class="dialog__title dialog__title--panel" id="settings-title" data-i18n="settings.title">Einstellungen</h2>
       <button type="button" class="icon-btn" data-close-dialog aria-label="Dialog schließen" data-i18n-attr="aria-label=dialog.close">
         <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
       </button>
     </div>
 
     <form class="form" id="settings-form">
-      <p class="hint" data-i18n="settings.saved">Die Änderungen greifen sofort und werden lokal auf deinem Gerät gespeichert.</p>
+      <p class="hint" data-i18n="settings.saved">Änderungen greifen sofort und werden lokal auf deinem Gerät gespeichert. Kilometer und Meilen werden umgerechnet.</p>
       <fieldset class="segmented">
         <legend class="field__label" data-i18n="settings.language">Sprache</legend>
         <label><input type="radio" name="lang" value="de"><span lang="de">Deutsch</span></label>
@@ -648,7 +650,7 @@
       </fieldset>
 
       <fieldset class="segmented">
-        <legend class="field__label" data-i18n="settings.unit">Distanz</legend>
+        <legend class="field__label" data-i18n="settings.unit">Maßeinheit</legend>
         <label><input type="radio" name="unit" value="km"><span data-i18n="settings.km">Kilometer</span></label>
         <label><input type="radio" name="unit" value="mi"><span data-i18n="settings.mi">Meilen</span></label>
       </fieldset>
@@ -667,7 +669,7 @@
           <option value="JPY">JPY – ¥</option>
           <option value="CHF">CHF - FR</option>
         </select>
-        <p class="hint" id="currency-hint" data-i18n="settings.currencyHint">Es wird nur die Anzeige geändert, die gespeicherten Preise werden nicht umgerechnet.</p>
+        <p class="hint" id="currency-hint" data-i18n="settings.currencyHint">Bei Auswahl einer anderen Währung werden bereits gespeicherte Preise nicht umgerechnet. Es ändert sich nur die Anzeige der Währung.</p>
       </div>
 
       <fieldset class="segmented">
