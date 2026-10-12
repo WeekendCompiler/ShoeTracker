@@ -194,6 +194,8 @@ window.SHOE_I18N = {
     'toast.invalidBackup': 'Datei konnte nicht gelesen werden – kein gültiges Backup.',
     'toast.installed': 'ShoeTracker ist installiert.',
 
+    'emojiPicker.title': 'Emoji auswählen',
+
     'csv.headers': 'Schuh-ID|Schuh|Marke|Archiviert|Kaufpreis|Kaufdatum|Max. Kilometer|Startkilometer|Aktuelle Kilometer|Verbleibende Kilometer|Lauf-ID|Laufdatum|Distanz (km)|Notizen',
     'csv.yes': 'Ja',
     'csv.no': 'Nein'
@@ -387,6 +389,8 @@ window.SHOE_I18N = {
     'toast.restored': 'Backup restored.',
     'toast.invalidBackup': 'File could not be read – not a valid backup.',
     'toast.installed': 'ShoeTracker is installed.',
+
+    'emojiPicker.title': 'Select emoji',
 
     'csv.headers': 'Shoe ID|Shoe|Brand|Archived|Price|Purchase date|Max. km|Starting km|Current km|Remaining km|Run ID|Run date|Distance (km)|Notes',
     'csv.yes': 'Yes',

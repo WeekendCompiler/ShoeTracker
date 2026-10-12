@@ -420,7 +420,7 @@
         <label class="field__label" for="shoe-icon" data-i18n="add.icon">Schuh-Icon / Emoji</label>
         <div class="emoji-field">
           <input class="input" type="text" id="shoe-icon" name="icon" value="👟" maxlength="12"
-                 autocomplete="off" aria-describedby="shoe-icon-hint">
+                 autocomplete="off" inputmode="none" aria-describedby="shoe-icon-hint">
           <span class="hint" id="shoe-icon-hint" data-i18n="add.iconHint">Wähle ein Emoji für deinen Schuh, z. B. 👟, 🏃, ⚡</span>
         </div>
       </div>
@@ -630,7 +630,7 @@
         <label class="field__label" for="edit-shoe-icon-input" data-i18n="add.icon">Schuh-Icon / Emoji</label>
         <div class="emoji-field">
           <input class="input" type="text" id="edit-shoe-icon-input" name="icon" value="👟" maxlength="12"
-                 autocomplete="off" aria-describedby="edit-shoe-icon-hint">
+                 autocomplete="off" inputmode="none" aria-describedby="edit-shoe-icon-hint">
           <span class="hint" id="edit-shoe-icon-hint" data-i18n="add.iconHint">Wähle ein Emoji für deinen Schuh, z. B. 👟, 🏃, ⚡</span>
         </div>
       </div>
@@ -777,6 +777,23 @@
     </div>
     <p class="dialog__text" id="install-text"></p>
     <button type="button" class="btn btn--filled btn--block" data-close-dialog data-i18n="install.ok">Verstanden</button>
+  </div>
+</dialog>
+
+<!-- Emoji Picker Dialog -->
+<dialog class="dialog dialog--emoji-picker" id="dialog-emoji-picker" aria-labelledby="emoji-picker-title">
+  <div class="dialog__inner">
+    <div class="dialog__head">
+      <h2 class="dialog__title" id="emoji-picker-title" data-i18n="emojiPicker.title">Emoji auswählen</h2>
+      <button type="button" class="icon-btn" data-close-emoji-picker aria-label="Schließen" data-i18n-attr="aria-label=dialog.close">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+    <div class="emoji-picker">
+      <div class="emoji-picker__grid" id="emoji-grid">
+        <!-- Emojis werden per JavaScript eingefügt -->
+      </div>
+    </div>
   </div>
 </dialog>
 
