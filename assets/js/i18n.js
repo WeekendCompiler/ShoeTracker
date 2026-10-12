@@ -56,7 +56,7 @@ window.SHOE_I18N = {
     'wear.worn': 'Verschlissen',
 
     'log.distance': 'Distanz',
-    'log.distancePh': 'z. B. 10,5',
+    'log.distancePh': 'z. B. 10,53',
     'log.date': 'Datum',
     'log.notes': 'Notizen / Strecke (optional)',
     'log.notesPh': 'z. B. lockerer Dauerlauf im Park',
@@ -250,7 +250,7 @@ window.SHOE_I18N = {
     'wear.worn': 'Worn out',
 
     'log.distance': 'Distance',
-    'log.distancePh': 'e.g. 10.5',
+    'log.distancePh': 'e.g. 10.53',
     'log.date': 'Date',
     'log.notes': 'Notes / route (optional)',
     'log.notesPh': 'e.g. easy run in the park',
