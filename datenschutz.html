@@ -70,57 +70,57 @@
 
   <h1 class="page__title">Datenschutz</h1>
   <p class="page__lead">
-    Kurzfassung: ShoeTracker hat keinen Server. Alles, was du einträgst, bleibt in deinem Browser und wird nirgendwohin übertragen.
+    ShoeTracker hat keinen Server! Alles Daten bleiben lokal in deinem Browser und wird nirgendwohin übertragen.
   </p>
 
   <section class="page__section">
-    <h2 class="page__h2">Welche Daten gespeichert werden</h2>
+    <h2 class="page__h2">Welche Daten werden gespeichert?</h2>
     <p class="page__text">
-      ShoeTracker verarbeitet keine personenbezogenen Daten auf einem Server – es gibt keinen. Alles, was du einträgst, liegt im <code>localStorage</code> deines Browsers unter sechs Schlüsseln:</p>
+      ShoeTracker verarbeitet keine personenbezogenen Daten. Sämtliche Eingaben liegen im <code>localStorage</code> deines Browsers unter folgenden Schlüsseln:</p>
     <ul class="page__list">
+      <li><code>shoe_tracker_lang</code> – die Wahl der Spracheinstellung</li>
+      <li><code>shoe_tracker_unit</code> – die gewählte Maßeinheit</li>
+      <li><code>shoe_tracker_currency</code> – die eingestellte Währung für die Preisanzeige</li>
+      <li><code>shoe_tracker_theme</code> – das ausgewählte Design hell oder dunkel</li>
       <li><code>shoe_tracker_data</code> – deine Schuhe und Läufe</li>
-      <li><code>shoe_tracker_theme</code> – das gewählte helle oder dunkle Design</li>
       <li><code>shoe_tracker_onboarded</code> – ob die Einführung bereits gezeigt wurde</li>
-      <li><code>shoe_tracker_lang</code> – die gewählte Sprache (Deutsch oder Englisch)</li>
-      <li><code>shoe_tracker_unit</code> – die gewählte Distanzeinheit (Kilometer oder Meilen)</li>
-      <li><code>shoe_tracker_currency</code> – die gewählte Währung für die Preisanzeige</li>
     </ul>
     <p class="page__text">
-      Diese Daten verlassen dein Gerät nur dann, wenn du selbst ein Backup exportierst und die Datei weitergibst.
+      Deine Daten verlassen dein Gerät nur dann, wenn du selbst ein Backup exportierst und die Datei weitergibst.
     </p>
   </section>
 
   <section class="page__section">
-    <h2 class="page__h2">Was nicht passiert</h2>
+    <h2 class="page__h2">Was passiert alles nicht?</h2>
     <p class="page__text">
-      Es werden keine Cookies gesetzt, keine Tracker geladen und keine Schriften, Skripte oder Bilder von fremden Servern nachgeladen. Die Seite nutzt ausschließlich die Systemschrift deines Geräts. Es gibt keine Analyse-Werkzeuge, keine Werbenetzwerke, kein Nutzerkonto und keine Anmeldung.
+      Es werden keine Cookies gesetzt, keine Tracker verwendet und keine Schriften, Skripte oder Bilder von fremden Servern nachgeladen. Die Seite nutzt ausschließlich die Systemschrift deines Geräts. Es gibt keine Analyse-Werkzeuge, keine Werbenetzwerke, kein Nutzerkonto und keine Anmeldung.
     </p>
     <p class="page__text">
-      Technisch durchgesetzt wird das über eine strikte Content-Security-Policy (<code>default-src 'none'</code>): Der Browser verweigert jede Verbindung zu einer fremden Quelle, auch wenn eine im Code stünde.
+      Technisch umgesetzt wird das über eine strikte Content-Security-Policy <code>default-src 'none'</code>: der Browser verweigert jede Verbindung zu einer fremden Quelle, auch wenn eine im Code stünde.
     </p>
   </section>
 
   <section class="page__section">
-    <h2 class="page__h2">Daten löschen</h2>
+    <h2 class="page__h2">Wie kann ich meine Daten löschen?</h2>
     <p class="page__text">
-      In der App unter <b>Statistik → Daten &amp; Backup</b> entfernt „Alle Daten von diesem Gerät löschen“ sämtliche gespeicherten Einträge unwiderruflich – alle oben genannten Schlüssel. Danach steht die App wie beim ersten Start da. Sinnvoll etwa, bevor du das Gerät weitergibst.
+      In der App unter <b>Statistik → Daten &amp; Backup</b> entfernt „Alle Daten von diesem Gerät löschen“ sämtliche gespeicherten Einträge unwiderruflich. Danach funktioniert die App wie beim ersten Start und beginnt mit dem Onboarding.
     </p>
     <p class="page__text">
-      Dasselbe erreichst du, indem du in den Browsereinstellungen die Website-Daten für diese Seite löschst. Bereits exportierte Backup-Dateien bleiben davon unberührt.
+      Dasselbe erreichst du, indem du in deinen Browsereinstellungen die Website-Daten für diese Seite löschst. Bereits exportierte Backup-Dateien bleiben davon unberührt.
     </p>
   </section>
 
   <section class="page__section">
     <h2 class="page__h2">Was die App nicht verhindern kann</h2>
     <p class="page__text">
-      Technisch bedingt sieht der Hoster dieser Seite – wie bei jedem Aufruf einer Website – deine IP-Adresse und deinen Browsertyp. Die Seite wird über GitHub Pages ausgeliefert, darauf hat die App selbst keinen Einfluss. Nach dem ersten Aufruf lässt sich ShoeTracker installieren und offline nutzen, sodass weitere Aufrufe ohne Verbindung zum Hoster auskommen.
+      Technisch bedingt sieht der Hoster dieser Seite – wie grundsätzlich bei jedem Aufruf einer Website – deine IP-Adresse und deinen Browsertyp. Die Seite wird über GitHub Pages ausgeliefert, darauf hat die App selbst keinen Einfluss. Nach dem ersten Aufruf lässt sich ShoeTracker installieren und offline nutzen, sodass weitere Aufrufe ohne Verbindung zum Hoster stattfinden können.
     </p>
   </section>
 
   <section class="page__section">
     <h2 class="page__h2">Quellcode</h2>
     <p class="page__text">
-      ShoeTracker ist quelloffen. Wer nachprüfen möchte, dass hier nichts übertragen wird, findet den vollständigen Code im <a href="https://github.com/WeekendCompiler/ShoeTracker" rel="noopener">Repository auf GitHub</a> – ohne Build-Schritt und ohne Abhängigkeiten, genau so, wie er ausgeliefert wird.
+      ShoeTracker ist quelloffen. Der vollständige Code ist im <a href="https://github.com/WeekendCompiler/ShoeTracker" rel="noopener">Repository auf GitHub</a> frei einsebar – ohne Build-Schritte und Abhängigkeiten, exakt so, wie er ausgeliefert wird.
     </p>
   </section>
 
@@ -132,12 +132,11 @@
 
 <footer class="site-foot">
   <nav class="site-foot__nav" aria-label="Weitere Informationen">
-    <a href="./">Zur App</a>
     <a href="./faq.html">Fragen &amp; Antworten</a>
     <a href="https://github.com/WeekendCompiler/ShoeTracker" rel="noopener">Quellcode</a>
     <a href="./en/privacy.html" hreflang="en" lang="en" data-lang="en">English</a>
   </nav>
-  <p class="site-foot__meta">Kostenlos · werbefrei · ohne Konto · lokale Daten</p>
+
 </footer>
 
 </body>

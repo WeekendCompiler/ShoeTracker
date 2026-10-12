@@ -57,15 +57,31 @@
       "name": "Wie viele Kilometer hält ein Laufschuh?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Als Faustregel gelten 600 bis 900 Kilometer. Die tatsächliche Haltbarkeit hängt von Körpergewicht, Laufstil, Untergrund und Dämpfungsmaterial ab. ShoeTracker ist deshalb pro Schuh einstellbar und startet mit 800 Kilometern als Vorgabe."
+        "text": "Als Faustregel gelten ca. 600 bis 1.000 Kilometer. Die tatsächliche Haltbarkeit hängt von Modell, Laufstil, Körpergewicht, Untergrund und den verbauten Dämpfungsmaterialien ab. Schuhe können außerem unabhängig von ihrer Nutzung durch UV-Licht und Oxidation altern. Als Standartvorgabe geht ShoeTracker von 800 Kilometern Laufleistung aus. Da sich Technologien und Materialien ständig verändern und sich der Verschleiß von zum Beispiel Trailrunningschuhen und Schuhen mit verbauten Carbonplatten völlig anders zueinander verhalten kann, lässt sich dieser Wert für jedes angelegte Modell individuell einstellen."
       }
     },
     {
       "@type": "Question",
-      "name": "Werden meine Daten an einen Server gesendet?",
+      "name": "Welche Verschleißbereiche verwendet ShoeTracker?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nein. ShoeTracker speichert Schuhe und Läufe ausschließlich im lokalen Speicher deines Browsers. Es gibt kein Konto, keine Anmeldung, keine Cloud und keine Analyse- oder Werbeskripte. Die App lädt ausschließlich ihre eigenen Dateien."
+        "text": "Die App teilt den Zustand von Laufschuhen in vier Bereiche ein. Neu gekaufte Schuhe haben \"out of the box\" oft ein sehr poppiges Laufgefühl und viel \"Bounce\". Deshalb markiert ShoeTracker Schuhe bis 25 Prozent der eingestellten Laufleistung als Frisch. Nach einer Weile fühlen sie sich dann etwas weniger lebendig und neu an, sind aber noch lange problemlos verwendbar. Sie gelten bis 75 Prozent als Gut. Danach haben sie den Sweetspot aus Gesundheitsschutz, Laufkomfort und Performance verlassen. Ab 75 Prozent werden die Schuhe Demnächst fällig und man sollte sich so langsam über neue Schuhe informieren. Überschreitet ein Schuh 90 Prozent seiner Laufleistung, gilt er als Verschlissen. Spätestens jetzt sollte man Ersatz besorgen. Bis zu den vollen 100 Prozent ist noch etwas Puffer, bis die Schuhe dann komplett ausrangiert und ins Archiv abgelegt werden können. Diese Standardwerte für die Grenzen der Verschleißbereiche sind frei konfigurierbar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kann die App sonst noch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wer mehrere Laufschuhe im Wechsel läuft, kann sie per Griff in eine beliebige Reihenfolge schieben oder sie automatisch nach Zustand oder verbleibende Laufleistung sortieren lassen. Ausgemusterte Schuhe lassen sich archivieren, ohne ihre Historie zu verlieren. Läufe lassen sich mit Datum und Notizen zur Strecke erfassen, die Statistik zeigt sinnvolle Auswertungen. Als installierbare Progressive Web App läuft ShoeTracker auf Android, iOS, Windows, macOS und Linux."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Werden meine Daten an einen Server gesendet oder verkauft?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. ShoeTracker speichert Schuhe und Läufe ausschließlich im lokalen Speicher deines Browsers. Es gibt kein Konto, keine Anmeldung, keine Cloud und keine Analyse- oder Werbeskripte. Die App versendet nichts und lädt ausschließlich ihre eigenen Dateien."
       }
     },
     {
@@ -73,7 +89,7 @@
       "name": "Funktioniert ShoeTracker offline?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Nach dem ersten Aufruf liegt die App im Cache des Browsers und lässt sich als Progressive Web App auf dem Startbildschirm installieren. Danach startet sie auch ohne Internetverbindung."
+        "text": "Ja. Nach dem ersten Aufruf liegt die App im Cache deines Browsers und lässt sich als Progressive Web App auf dem Startbildschirm installieren. Danach startet sie auch ohne Internetverbindung."
       }
     },
     {
@@ -81,15 +97,15 @@
       "name": "Wie sichere ich meine Daten oder wechsle das Gerät?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Im Bereich Statistik gibt es unter „Daten & Backup“ einen Export als JSON-Datei. Diese Datei lässt sich auf einem anderen Gerät oder in einem anderen Browser wieder einspielen. Zusätzlich gibt es einen CSV-Export für Excel."
+        "text": "Im Bereich Statistik gibt es unter „Daten & Backup“ einen Export als JSON-Datei. Diese Datei lässt sich auf einem anderen Gerät oder in einem anderen Browser wieder einspielen. Zusätzlich gibt es einen CSV-Export für Excel. Weil es keinen Server gibt, ist dieses manuelle Backup die einzige Absicherung gegen Datenverlust!"
       }
     },
     {
       "@type": "Question",
-      "name": "Warum sind meine Daten nach dem Schließen des Browsers weg?",
+      "name": "Warum sind meine Daten weg?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Manche Browser löschen beim Schließen automatisch alle Website-Daten, etwa Brave oder Chrome, wenn die entsprechende Datenschutz-Einstellung aktiv ist. Damit verschwinden auch Schuhe und Läufe. Abhilfe schafft eine Ausnahme für diese Seite: In den Browsereinstellungen unter Datenschutz und Sicherheit → Cookies und Websitedaten die Adresse weekendcompiler.github.io bei den Websites eintragen, die immer Cookies verwenden dürfen. Wer die Browserdaten dagegen von Hand löscht, löscht auch die Einträge – davor schützt nur ein Backup."
+        "text": "Manche Browser löschen beim Schließen automatisch alle Website-Daten, wenn die entsprechende Datenschutz-Einstellung aktiviert ist. Damit verschwinden auch alle Schuhe und Läufe. Dagegen hilft es manuell eine Ausnahmeregel für die Seite von ShoeTracker zu erstellen. Meist in den Browsereinstellungen unter Datenschutz oder Sicherheit → Cookies und Websitedaten. Hier die Adresse \"weekendcompiler.github.io\" bei den Websites eintragen, die immer Cookies verwenden dürfen. Wer die Browserdaten dagegen von Hand löscht, löscht auch die Einträge – davor schützt nur ein vorheriges Backup."
       }
     },
     {
@@ -97,7 +113,7 @@
       "name": "Was kostet ShoeTracker?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nichts. Die App ist kostenlos, werbefrei und funktioniert ohne Benutzerkonto."
+        "text": "Nichts. Die App ist kostenlos und werbefrei."
       }
     }
   ]
@@ -136,27 +152,38 @@
   <section class="page__section">
     <h2 class="page__h2">Wie viele Kilometer hält ein Laufschuh?</h2>
     <p class="page__text">
-      Als Faustregel gelten 600 bis 900 Kilometer. Die tatsächliche Haltbarkeit hängt von Körpergewicht, Laufstil, Untergrund und Dämpfungsmaterial ab. ShoeTracker ist deshalb pro Schuh einstellbar und startet mit 800 Kilometern als Vorgabe.
-    </p>
-    <p class="page__text">
-      Die App markiert einen Schuh ab 75 Prozent der eingestellten Laufleistung als „Demnächst fällig“ und ab 90 Prozent als „Verschlissen“ – früh genug, um Ersatz zu besorgen, bevor Knie und Schienbein die Rechnung schicken.
+      Als Faustregel gelten ca. 600 bis 1.000 Kilometer. Die tatsächliche Haltbarkeit hängt von Modell, Laufstil, Körpergewicht, Untergrund und den verbauten Dämpfungsmaterialien ab. Schuhe können außerem unabhängig von ihrer Nutzung durch UV-Licht und Oxidation altern. Als Standartvorgabe geht ShoeTracker von 800 Kilometern Laufleistung aus. Da sich Technologien und Materialien ständig verändern und sich der Verschleiß von zum Beispiel Trailrunningschuhen und Schuhen mit verbauten Carbonplatten völlig anders zueinander verhalten kann, lässt sich dieser Wert für jedes angelegte Modell individuell einstellen.
     </p>
   </section>
 
   <section class="page__section">
-    <h2 class="page__h2">Werden meine Daten an einen Server gesendet?</h2>
+    <h2 class="page__h2">Welche Verschleißbereiche verwendet ShoeTracker?</h2>
     <p class="page__text">
-      Nein. ShoeTracker speichert Schuhe und Läufe ausschließlich im lokalen Speicher deines Browsers. Es gibt kein Konto, keine Anmeldung, keine Cloud und keine Analyse- oder Werbeskripte. Die App lädt ausschließlich ihre eigenen Dateien.
+      Die App teilt den Zustand von Laufschuhen in vier Bereiche ein. Neu gekaufte Schuhe haben „out of the box“ oft ein sehr poppiges Laufgefühl und viel „Bounce“. Deshalb markiert ShoeTracker Schuhe bis 25 Prozent der eingestellten Laufleistung als <span class="badge badge--fresh">Frisch</span>. Nach einer Weile fühlen sie sich dann etwas weniger lebendig und neu an, sind aber noch lange problemlos verwendbar. Sie gelten bis 75 Prozent als <span class="badge badge--ok">Gut</span>. Danach haben sie den Sweetspot aus Gesundheitsschutz, Laufkomfort und Performance verlassen. Ab 75 Prozent werden die Schuhe <span class="badge badge--warn">Demnächst fällig</span> und man sollte sich so langsam über neue Schuhe informieren. Überschreitet ein Schuh 90 Prozent seiner Laufleistung, gilt er als <span class="badge badge--worn">Verschlissen</span>. Spätestens jetzt sollte man Ersatz besorgen. Bis zu den vollen 100 Prozent ist noch etwas Puffer, bis die Schuhe dann komplett ausrangiert und ins Archiv abgelegt werden können. Diese Standardwerte für die Grenzen der Verschleißbereiche sind frei konfigurierbar.
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">Was kann die App sonst noch?</h2>
+    <p class="page__text">
+      Wer mehrere Laufschuhe im Wechsel läuft, kann sie per Griff in eine beliebige Reihenfolge schieben oder sie automatisch nach Zustand oder verbleibende Laufleistung sortieren lassen. Ausgemusterte Schuhe lassen sich archivieren, ohne ihre Historie zu verlieren. Läufe lassen sich mit Datum und Notizen zur Strecke erfassen, die Statistik zeigt sinnvolle Auswertungen. Als installierbare Progressive Web App läuft ShoeTracker auf Android, iOS, Windows, macOS und Linux.
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">Werden meine Daten an einen Server gesendet oder verkauft?</h2>
+    <p class="page__text">
+      Nein. ShoeTracker speichert Schuhe und Läufe ausschließlich im lokalen Speicher deines Browsers. Es gibt kein Konto, keine Anmeldung, keine Cloud und keine Analyse- oder Werbeskripte. Die App versendet nichts und lädt ausschließlich ihre eigenen Dateien.
     </p>
     <p class="page__text">
-      Einzelheiten dazu, welche Schlüssel dabei belegt werden und wie du sie wieder löschst, stehen in der <a href="./datenschutz.html">Datenschutzerklärung</a>.
+      Genauere Einzelheiten stehen in der <a href="./datenschutz.html">Datenschutzerklärung</a>.
     </p>
   </section>
 
   <section class="page__section">
     <h2 class="page__h2">Funktioniert ShoeTracker offline?</h2>
     <p class="page__text">
-      Ja. Nach dem ersten Aufruf liegt die App im Cache des Browsers und lässt sich als Progressive Web App auf dem Startbildschirm installieren. Danach startet sie auch ohne Internetverbindung.
+      Ja. Nach dem ersten Aufruf liegt die App im Cache deines Browsers und lässt sich als Progressive Web App auf dem Startbildschirm installieren. Danach startet sie auch ohne Internetverbindung.
     </p>
   </section>
 
@@ -166,31 +193,24 @@
       Im Bereich Statistik gibt es unter „Daten &amp; Backup“ einen Export als JSON-Datei. Diese Datei lässt sich auf einem anderen Gerät oder in einem anderen Browser wieder einspielen. Zusätzlich gibt es einen CSV-Export für Excel.
     </p>
     <p class="page__text">
-      Weil es keinen Server gibt, ist dieses Backup die einzige Absicherung gegen Datenverlust: Wer die Website-Daten des Browsers löscht, löscht auch die Einträge.
+      Weil es keinen Server gibt, ist dieses manuelle Backup die einzige Absicherung gegen Datenverlust!
     </p>
   </section>
 
   <section class="page__section">
-    <h2 class="page__h2">Warum sind meine Daten nach dem Schließen des Browsers weg?</h2>
+    <h2 class="page__h2">Warum sind meine Daten weg?</h2>
     <p class="page__text">
-      Manche Browser löschen beim Schließen automatisch alle Website-Daten, etwa Brave oder Chrome, wenn die entsprechende Datenschutz-Einstellung aktiv ist. Damit verschwinden auch Schuhe und Läufe.
+      Manche Browser löschen beim Schließen automatisch alle Website-Daten, wenn die entsprechende Datenschutz-Einstellung aktiviert ist. Damit verschwinden auch alle Schuhe und Läufe.
     </p>
     <p class="page__text">
-      Abhilfe schafft eine Ausnahme für diese Seite: In den Browsereinstellungen unter Datenschutz und Sicherheit → Cookies und Websitedaten die Adresse weekendcompiler.github.io bei den Websites eintragen, die immer Cookies verwenden dürfen. Wer die Browserdaten dagegen von Hand löscht, löscht auch die Einträge – davor schützt nur ein Backup.
+      Dagegen hilft es manuell eine Ausnahmeregel für die Seite von ShoeTracker zu erstellen. Meist in den Browsereinstellungen unter Datenschutz oder Sicherheit → Cookies und Websitedaten. Hier die Adresse "weekendcompiler.github.io" bei den Websites eintragen, die immer Cookies verwenden dürfen. Wer die Browserdaten dagegen von Hand löscht, löscht auch die Einträge – davor schützt nur ein vorheriges Backup.
     </p>
   </section>
 
   <section class="page__section">
     <h2 class="page__h2">Was kostet ShoeTracker?</h2>
     <p class="page__text">
-      Nichts. Die App ist kostenlos, werbefrei und funktioniert ohne Benutzerkonto.
-    </p>
-  </section>
-
-  <section class="page__section">
-    <h2 class="page__h2">Was kann die App sonst noch?</h2>
-    <p class="page__text">
-      Wer mehrere Paare im Wechsel läuft, sortiert sie per Griff in die gewünschte Reihenfolge und schiebt ausgemusterte Schuhe ins Archiv, ohne ihre Historie zu verlieren. Läufe lassen sich mit Datum und Notiz zur Strecke erfassen, die Statistik zeigt sinnvolle Auswertungen. Als installierbare Progressive Web App läuft ShoeTracker auf Android, iOS, Windows, macOS und Linux.
+      Nichts. Die App ist kostenlos und werbefrei.
     </p>
   </section>
 
@@ -202,12 +222,11 @@
 
 <footer class="site-foot">
   <nav class="site-foot__nav" aria-label="Weitere Informationen">
-    <a href="./">Zur App</a>
     <a href="./datenschutz.html">Datenschutz</a>
     <a href="https://github.com/WeekendCompiler/ShoeTracker" rel="noopener">Quellcode</a>
     <a href="./en/faq.html" hreflang="en" lang="en" data-lang="en">English</a>
   </nav>
-  <p class="site-foot__meta">Kostenlos · werbefrei · ohne Konto · lokale Daten</p>
+
 </footer>
 
 </body>

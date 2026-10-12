@@ -28,10 +28,10 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ShoeTracker logo: red running shoe with a progress bar, next to the German slogan “Kilometer deiner Laufschuhe im Blick – offline &amp; privat”.">
+<meta property="og:image:alt" content="ShoeTracker logo: red running shoe with a progress bar, next to the German slogan „Kilometer deiner Laufschuhe im Blick – offline &amp; privat“.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://weekendcompiler.github.io/ShoeTracker/assets/og/og-image.png">
-<meta name="twitter:image:alt" content="ShoeTracker logo: red running shoe with a progress bar, next to the German slogan “Kilometer deiner Laufschuhe im Blick – offline &amp; privat”.">
+<meta name="twitter:image:alt" content="ShoeTracker logo: red running shoe with a progress bar, next to the German slogan „Kilometer deiner Laufschuhe im Blick – offline &amp; privat“.">
 
 <meta name="theme-color" content="#fdf8f8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#161212" media="(prefers-color-scheme: dark)">
@@ -56,15 +56,31 @@
       "name": "How many miles does a running shoe last?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "As a rule of thumb, 375 to 560 miles (600 to 900 kilometres). The actual lifespan depends on body weight, running style, surface and cushioning material. That is why ShoeTracker lets you set the limit per shoe and starts with a default of 500 miles or 800 kilometres."
+        "text": "As a rule of thumb, around 375 to 620 miles. The actual lifespan depends on the model, running style, body weight, surface and the cushioning materials used. In addition, shoes can age independently of their usage due to UV light and oxidation. As a default, ShoeTracker assumes 500 miles of mileage. Since technologies and materials are constantly changing and the wear of e.g. trail running shoes and shoes with carbon plates can behave completely differently from each other, this value can be set individually for each shoe model."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my data sent to a server?",
+      "name": "What wear zones does ShoeTracker use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. ShoeTracker stores shoes and runs exclusively in your browser’s local storage. There is no account, no sign-in, no cloud and no analytics or advertising scripts. The app only loads its own files."
+        "text": "The app divides the condition of running shoes into four zones. Newly purchased shoes have "out of the box" a very poppy running feel with lots of "bounce". That is why ShoeTracker marks shoes up to 25 percent of the set mileage as Fresh. After a while they feel a bit less lively and new, but are still perfectly usable for a long time. They are considered Good up to 75 percent. After that they have left the sweet spot of health protection, running comfort and performance. From 75 percent, the shoes are Due soon and you should start thinking about getting new ones. If a shoe exceeds 90 percent of its mileage, it is considered Worn out. At the latest, you should get a replacement now so that you still have some buffer until you completely retire them and file them in the archive. These default values for the wear zone thresholds can be configured freely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What else can the app do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you run several running shoes in rotation, you can drag them by their handle into any order you want or have them automatically sorted by condition or remaining mileage. Retired shoes can be archived without losing their history. Runs can be logged with date and notes about the route, and the statistics show useful evaluations. As an installable Progressive Web App, ShoeTracker runs on Android, iOS, Windows, macOS and Linux."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data sent to a server or sold?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. ShoeTracker stores shoes and runs exclusively in your browser's local storage. There is no account, no sign-in, no cloud and no analytics or advertising scripts. The app sends nothing and only loads its own files."
       }
     },
     {
@@ -72,7 +88,7 @@
       "name": "Does ShoeTracker work offline?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. After the first visit the app is kept in the browser cache and can be installed on your home screen as a Progressive Web App. From then on it starts without an internet connection."
+        "text": "Yes. After the first call, the app is stored in your browser's cache and can be installed on your home screen as a Progressive Web App. From then on it starts without an internet connection."
       }
     },
     {
@@ -80,15 +96,15 @@
       "name": "How do I back up my data or switch devices?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In the Statistics section, “Data & backup” offers an export as a JSON file. You can import this file again on another device or in another browser. There is also a CSV export for Excel."
+        "text": "In the Statistics section, under Data & backup, there is an export as a JSON file. This file can be played back on another device or in another browser. Additionally, there is a CSV export for Excel. Since there is no server, this manual backup is the only protection against data loss!"
       }
     },
     {
       "@type": "Question",
-      "name": "Why is my data gone after closing the browser?",
+      "name": "Why is my data gone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Some browsers automatically delete all site data when they close, for example Brave, or Chrome when the corresponding privacy setting is on. That also removes your shoes and runs. The fix is an exception for this site: in your browser settings under Privacy and security → Cookies and site data, add weekendcompiler.github.io to the sites that are always allowed to use cookies. If you clear browser data by hand, you clear the entries too – only a backup protects against that."
+        "text": "Some browsers automatically delete all site data when they close when the corresponding privacy setting is activated. This also removes all your shoes and runs. To prevent this, manually create an exception for the ShoeTracker page. Usually in the browser settings under Privacy or Security -> Cookies and site data. Enter the address "weekendcompiler.github.io" here in the list of websites that are always allowed to use cookies. If you clear browser data manually, you also clear the entries - only a previous backup protects against this."
       }
     },
     {
@@ -96,7 +112,7 @@
       "name": "What does ShoeTracker cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nothing. The app is free, ad-free and works without a user account."
+        "text": "Nothing. The app is free and without any adds."
       }
     }
   ]
@@ -129,67 +145,68 @@
 
   <h1 class="page__title">Frequently asked questions</h1>
   <p class="page__lead">
-    ShoeTracker is a free mileage tracker for running shoes. The most common questions about durability, offline use and privacy – answered briefly.
+    ShoeTracker is a free mileage tracker for running shoes. The most common questions about durability, offline use and privacy - answered briefly.
   </p>
 
   <section class="page__section">
     <h2 class="page__h2">How many miles does a running shoe last?</h2>
     <p class="page__text">
-      As a rule of thumb, 375 to 560 miles (600 to 900 kilometres). The actual lifespan depends on body weight, running style, surface and cushioning material. That is why ShoeTracker lets you set the limit per shoe and starts with a default of 500 miles or 800 kilometres.
-    </p>
-    <p class="page__text">
-      The app marks a shoe as “Due soon” from 75 percent of its set mileage and as “Worn out” from 90 percent – early enough to get a replacement before your knees and shins send the bill.
+      As a rule of thumb, around 375 to 620 miles. The actual lifespan depends on the model, running style, body weight, surface and the cushioning materials used. In addition, shoes can age independently of their usage due to UV light and oxidation. As a default, ShoeTracker assumes 500 miles of mileage. Since technologies and materials are constantly changing and the wear of e.g. trail running shoes and shoes with carbon plates can behave completely differently from each other, this value can be set individually for each shoe model.
     </p>
   </section>
 
   <section class="page__section">
-    <h2 class="page__h2">Is my data sent to a server?</h2>
+    <h2 class="page__h2">What wear zones does ShoeTracker use?</h2>
     <p class="page__text">
-      No. ShoeTracker stores shoes and runs exclusively in your browser’s local storage. There is no account, no sign-in, no cloud and no analytics or advertising scripts. The app only loads its own files.
-    </p>
-    <p class="page__text">
-      Which keys are used and how to delete them again is explained in the <a href="./privacy.html">privacy policy</a>.
-    </p>
-  </section>
-
-  <section class="page__section">
-    <h2 class="page__h2">Does ShoeTracker work offline?</h2>
-    <p class="page__text">
-      Yes. After the first visit the app is kept in the browser cache and can be installed on your home screen as a Progressive Web App. From then on it starts without an internet connection.
-    </p>
-  </section>
-
-  <section class="page__section">
-    <h2 class="page__h2">How do I back up my data or switch devices?</h2>
-    <p class="page__text">
-      In the Statistics section, “Data &amp; backup” offers an export as a JSON file. You can import this file again on another device or in another browser. There is also a CSV export for Excel.
-    </p>
-    <p class="page__text">
-      Since there is no server, this backup is your only protection against data loss: clearing the browser’s site data also clears your entries.
-    </p>
-  </section>
-
-  <section class="page__section">
-    <h2 class="page__h2">Why is my data gone after closing the browser?</h2>
-    <p class="page__text">
-      Some browsers automatically delete all site data when they close, for example Brave, or Chrome when the corresponding privacy setting is on. That also removes your shoes and runs.
-    </p>
-    <p class="page__text">
-      The fix is an exception for this site: in your browser settings under Privacy and security → Cookies and site data, add weekendcompiler.github.io to the sites that are always allowed to use cookies. If you clear browser data by hand, you clear the entries too – only a backup protects against that.
-    </p>
-  </section>
-
-  <section class="page__section">
-    <h2 class="page__h2">What does ShoeTracker cost?</h2>
-    <p class="page__text">
-      Nothing. The app is free, ad-free and works without a user account.
+      The app divides the condition of running shoes into four zones. Newly purchased shoes have "out of the box" a very poppy running feel with lots of "bounce". That is why ShoeTracker marks shoes up to 25 percent of the set mileage as <span class="badge badge--fresh">Fresh</span>. After a while they feel a bit less lively and new, but are still perfectly usable for a long time. They are considered <span class="badge badge--ok">Good</span> up to 75 percent. After that they have left the sweet spot of health protection, running comfort and performance. From 75 percent, the shoes are <span class="badge badge--warn">Due soon</span> and you should start thinking about getting new ones. If a shoe exceeds 90 percent of its mileage, it is considered <span class="badge badge--worn">Worn out</span>. At the latest, you should get a replacement now so that you still have some buffer until you completely retire them and file them in the archive. These default values for the wear zone thresholds can be configured freely.
     </p>
   </section>
 
   <section class="page__section">
     <h2 class="page__h2">What else can the app do?</h2>
     <p class="page__text">
-      If you rotate several pairs, you can drag them by their handle into the order you want and move retired shoes to the archive without losing their history. Runs are logged with date and a note about the route, and the statistics show useful summaries. Distances can be shown in kilometres or miles. As an installable Progressive Web App, ShoeTracker runs on Android, iOS, Windows, macOS and Linux.
+      If you run several running shoes in rotation, you can drag them by their handle into any order you want or have them automatically sorted by condition or remaining mileage. Retired shoes can be archived without losing their history. Runs can be logged with date and notes about the route, and the statistics show useful evaluations. As an installable Progressive Web App, ShoeTracker runs on Android, iOS, Windows, macOS and Linux.
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">Is my data sent to a server or sold?</h2>
+    <p class="page__text">
+      No. ShoeTracker stores shoes and runs exclusively in your browser's local storage. There is no account, no sign-in, no cloud and no analytics or advertising scripts. The app sends nothing and only loads its own files.
+    </p>
+    <p class="page__text">
+      More details can be found in the <a href="./privacy.html">privacy policy</a>.
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">Does ShoeTracker work offline?</h2>
+    <p class="page__text">
+      Yes. After the first call, the app is stored in your browser's cache and can be installed on your home screen as a Progressive Web App. From then on it starts without an internet connection.
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">How do I back up my data or switch devices?</h2>
+    <p class="page__text">
+      In the Statistics section, under Data &amp; backup, there is an export as a JSON file. This file can be played back on another device or in another browser. Additionally, there is a CSV export for Excel. Since there is no server, this manual backup is the only protection against data loss!
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">Why is my data gone?</h2>
+    <p class="page__text">
+      Some browsers automatically delete all site data when they close when the corresponding privacy setting is activated. This also removes all your shoes and runs.
+    </p>
+    <p class="page__text">
+      To prevent this, manually create an exception for the ShoeTracker page. Usually in the browser settings under Privacy or Security &rarr; Cookies and site data. Enter the address "weekendcompiler.github.io" here in the list of websites that are always allowed to use cookies. If you clear browser data manually, you also clear the entries - only a previous backup protects against this.
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">What does ShoeTracker cost?</h2>
+    <p class="page__text">
+      Nothing. The app is free and without any adds.
     </p>
   </section>
 
@@ -201,12 +218,11 @@
 
 <footer class="site-foot">
   <nav class="site-foot__nav" aria-label="More information">
-    <a href="../">Back to the app</a>
     <a href="./privacy.html">Privacy</a>
     <a href="https://github.com/WeekendCompiler/ShoeTracker" rel="noopener">Source code</a>
     <a href="../faq.html" hreflang="de" lang="de" data-lang="de">Deutsch</a>
   </nav>
-  <p class="site-foot__meta">Free · ad-free · no account · local data</p>
+
 </footer>
 
 </body>
