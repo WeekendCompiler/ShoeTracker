@@ -39,7 +39,7 @@
   var KM_PER_MI = 1.609344;
   var MILE_REGIONS = ['US', 'GB', 'LR', 'MM'];
   // INFO: Same set as FinanzGecko. Display only – prices are never converted.
-  var CURRENCIES = ['EUR', 'USD', 'CHF', 'GBP', 'JPY', 'SEK', 'NOK', 'DKK'];
+  var CURRENCIES = ['EUR', 'USD', 'CHF', 'GBP', 'JPY', 'SEK', 'NOK', 'DKK', 'ISK', 'CAD'];
   var REGION_CURRENCY = { CH: 'CHF', LI: 'CHF', US: 'USD', GB: 'GBP', JP: 'JPY', SE: 'SEK', NO: 'NOK', DK: 'DKK' };
 
   var TABS = ['shoes', 'stats'];
@@ -53,7 +53,7 @@
   var lang = 'de';
   var unit = 'km';
   var currency = 'EUR';
-  var numberFormat, numberFormat1, priceFormat, currencyFormat, dateFormat;
+  var numberFormat, numberFormat1, priceFormat, dateFormat;
 
   function setupFormats() {
     // INFO: English uses the system's regional variant (en-US, en-GB …) when available.
@@ -62,7 +62,6 @@
     numberFormat = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
     numberFormat1 = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
     priceFormat = new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    currencyFormat = new Intl.NumberFormat(locale, { style: 'currency', currency: currency });
     dateFormat = new Intl.DateTimeFormat(locale, { day: '2-digit', month: '2-digit', year: 'numeric' });
   }
 
@@ -164,9 +163,9 @@
   /** Unit/currency suffixes and the km-based input limits converted to the chosen unit. */
   function applyUnitControls() {
     document.querySelectorAll('[data-unit]').forEach(function (node) { node.textContent = unit; });
-    var symbol = currencyFormat.formatToParts(0).find(function (part) { return part.type === 'currency'; });
+    var suffix = currencySuffix();
     document.querySelectorAll('[data-currency]').forEach(function (node) {
-      node.textContent = symbol ? symbol.value : currency;
+      node.textContent = suffix;
     });
 
     byId('quick-run-distance').max = String(unitLimit(LIMIT.distance));
@@ -247,7 +246,13 @@
 
   function formatPrice(value) {
     if (value === undefined || value === null || value === '') return '–';
-    return currencyFormat.format(value);
+    return priceFormat.format(value) + ' ' + currencySuffix();
+  }
+
+  function currencySuffix() {
+    var select = byId('currency-select');
+    var option = select && select.selectedOptions[0];
+    return option ? option.textContent.split(/\s[-–]\s/).pop().trim() : currency;
   }
 
   /** Takes a price per km and shows it per chosen unit. */
@@ -548,6 +553,7 @@
     var archived = ui.filter === 'archived';
     byId('empty-title').textContent = t(archived ? 'empty.archiveTitle' : 'empty.title');
     byId('empty-text').textContent = t(archived ? 'empty.archiveText' : 'empty.text');
+    byId('empty-text').classList.toggle('empty__text--hint', archived);
     shoesEmpty.hidden = shoes.length > 0 || onboarding;
     byId('empty-action').hidden = archived;
 
@@ -580,6 +586,7 @@
     open.type = 'button';
     open.dataset.open = shoe.id;
     open.setAttribute('aria-label', t('shoe.open', { name: shoe.name }));
+    open.title = t('shoe.editTitle');
     open.appendChild(el('span', 'shoe__emoji', shoe.icon));
 
     // WARNING: <button> allows phrasing content only – keep spans, no headings/paragraphs.
@@ -597,6 +604,7 @@
       add.type = 'button';
       add.dataset.logRun = shoe.id;
       add.setAttribute('aria-label', t('shoe.logRun', { name: shoe.name }));
+      add.title = t('shoe.logRunTitle');
       // INFO: The visible label is part of the accessible name (WCAG 2.5.3 Label in Name).
       add.appendChild(icon('i-plus', 'icon--sm'));
       head.appendChild(add);

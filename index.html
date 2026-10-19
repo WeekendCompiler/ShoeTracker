@@ -287,7 +287,7 @@
     <section class="card">
       <h3 class="section-title" data-i18n="stats.backupTitle">Daten &amp; Backup</h3>
       <p class="hint" data-i18n="stats.backupHint">
-        Alle Daten liegen ausschließlich in diesem Browser. Es gibt keinen Server und keine Cloud – darum ist ein regelmäßiges Backup die einzige Absicherung gegen Datenverlust.
+        Alle Daten liegen ausschließlich lokal in deinem Browser. Keine Cloud, keine Server. Darum sind regelmäßige Backups die einzige Absicherung gegen Datenverlust.
       </p>
       <div class="row">
         <button type="button" class="btn btn--tonal" id="export-json-btn">
@@ -307,7 +307,7 @@
 
       <hr class="rule">
       <p class="hint" data-i18n="stats.deleteHint">
-        Löscht Schuhe, Läufe und Einstellungen endgültig aus diesem Browser – etwa bevor du das Gerät weitergibst. Ein zuvor exportiertes Backup bleibt erhalten.
+        Alle Daten werden endgültig aus deinem Browser gelöscht. Vorher exportierte Backups bleiben aber erhalten und lassen sich auf Wunsch wieder importieren.
       </p>
       <button type="button" class="btn btn--danger btn--block btn--small" id="delete-all-btn">
         <svg class="icon icon--sm" aria-hidden="true"><use href="#i-trash"/></svg>
@@ -633,7 +633,7 @@
     </div>
 
     <form class="form" id="settings-form">
-      <p class="hint" data-i18n="settings.saved">Änderungen greifen sofort und werden lokal auf diesem Gerät gespeichert.</p>
+      <p class="hint" data-i18n="settings.saved">Die Änderungen greifen sofort und werden lokal auf diesem Gerät gespeichert.</p>
       <fieldset class="segmented">
         <legend class="field__label" data-i18n="settings.language">Sprache</legend>
         <label><input type="radio" name="lang" value="de"><span lang="de">Deutsch</span></label>
@@ -651,14 +651,16 @@
         <select class="input" id="currency-select" name="currency" aria-describedby="currency-hint">
           <option value="EUR">EUR – €</option>
           <option value="USD">USD – $</option>
-          <option value="CHF">CHF – Fr.</option>
           <option value="GBP">GBP – £</option>
+          <option value="SEK">SEK – Kr</option>
+          <option value="NOK">NOK – Kr</option>
+          <option value="DKK">DKK – Kr</option>
+          <option value="ISK">ISK – Kr</option>
+          <option value="CAD">CAD – CA$</option>
           <option value="JPY">JPY – ¥</option>
-          <option value="SEK">SEK – kr</option>
-          <option value="NOK">NOK – kr</option>
-          <option value="DKK">DKK – kr</option>
+          <option value="CHF">CHF - FR</option>
         </select>
-        <p class="hint" id="currency-hint" data-i18n="settings.currencyHint">Ändert nur die Anzeige – gespeicherte Preise werden nicht umgerechnet.</p>
+        <p class="hint" id="currency-hint" data-i18n="settings.currencyHint">Es wird nur die Anzeige geändert, die gespeicherten Preise werden nicht umgerechnet.</p>
       </div>
 
       <fieldset class="segmented">
