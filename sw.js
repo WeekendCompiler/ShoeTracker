@@ -5,7 +5,7 @@
  * installed apps keep serving the old cache.
  */
 
-const VERSION = 'v6';
+const VERSION = 'v7';
 const CACHE = 'shoetracker-' + VERSION;
 
 // INFO: './' is the entry point; a direct index.html request offline hits the navigation fallback.
