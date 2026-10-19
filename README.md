@@ -107,7 +107,9 @@ All icon variants (favicon, header, PWA, maskable, Apple Touch) are derived from
 - View both languages and both themes
 - Is `VERSION` in `sw.js` increased?
 
-
+---
+---
+---
 
 # ShoeTracker (deu)
 
