@@ -6,9 +6,9 @@ Simple, efficient and private mileage counter for running shoes as an installabl
 
 ## Features
 
-- Add shoes and enter details (model, brand, wear limit, starting mileage,purchase date, price, emoji)
+- Add shoes and enter details (model, brand, wear limit, starting mileage, purchase date, price, emoji)
 - Log runs with distance, date, and notes
-- Wear status per shoe can be defined: as a recommendation up to 25% "Fresh", up to 75% "Good", from 75% to 90% "Due soon", above 90% "Worn Out"
+- Wear zones for shoes can be defined individually: as a recommendation up to 25% "Fresh", up to 75% "Good", from 75% to 90% "Due soon", above 90% "Worn Out"
 - Sort via drag & drop or arrow keys, archive, delete (with undo)
 - Statistics, CSV export, JSON backup, and restore
 - German and English (automatic based on system language, switchable), light and dark theme
@@ -119,7 +119,7 @@ Einfacher, effizienter und privater Kilometerzähler für Laufschuhe als install
 
 - Schuhe anlegen und Details eingeben (Modell, Marke, Verschleißgrenze, Startkilometer, Kaufdatum, Preis, Emoji)
 - Läufe mit Distanz, Datum und Notizen eintragen
-- Verschleißstatus pro Schuh: als Empfehlung bis 25 % „Frisch“, bis 75 % „Gut“, von 75 % bis 90 % „Bald fällig“, über 90 % „Verschlissen"
+- Verschleißbereiche für Schuhe frei konfigurierbar: als Empfehlung bis 25 % „Frisch“, bis 75 % „Gut“, von 75 % bis 90 % „Bald fällig“, über 90 % „Verschlissen"
 - Sortieren per Drag & Drop oder Pfeiltasten, archivieren, löschen (mit Rückgängig)
 - Statistik, CSV-Export, JSON-Backup und Wiederherstellung
 - Deutsch und Englisch (automatisch basierend auf der Systemsprache, umschaltbar), helles und dunkles Design

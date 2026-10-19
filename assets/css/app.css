@@ -766,6 +766,34 @@ textarea.input { min-height: 72px; resize: vertical; }
   .dialog { margin: auto; border-radius: var(--radius-l); }
 }
 
+#dialog-settings,
+#dialog-install {
+  border: 1px solid var(--surface-variant);
+  border-radius: var(--radius-l);
+  background: var(--surface-1);
+}
+
+#dialog-settings .segmented > legend {
+  margin-bottom: 16px;
+}
+
+#dialog-settings .field {
+  gap: 16px;
+}
+
+#dialog-settings #currency-select + p.hint {
+  margin-top: -10px;
+}
+
+#dialog-settings .wear-zones {
+  gap: 16px;
+}
+
+#dialog-settings .dialog__inner,
+#dialog-install .dialog__inner {
+  padding: 20px 20px 0;
+}
+
 /* ---------- Toast ---------- */
 .toast {
   position: fixed;
@@ -872,9 +900,11 @@ textarea.input { min-height: 72px; resize: vertical; }
   text-align: center;
 }
 
-#dialog-settings .site-foot {
+#dialog-settings .site-foot,
+#dialog-install .site-foot {
   border-top: 1px solid var(--surface-variant);
   padding-top: 16px;
+  padding-bottom: 20px;
 }
 .site-foot__nav {
   display: flex;
@@ -909,6 +939,12 @@ textarea.input { min-height: 72px; resize: vertical; }
   padding-top: calc(6px + env(safe-area-inset-top));
   background: var(--surface);
   border-bottom: 1px solid var(--surface-variant);
+}
+
+.page .site-foot {
+  border-top: 1px solid var(--surface-variant);
+  padding-top: 16px;
+  padding-bottom: 20px;
 }
 .page__back {
   display: inline-flex;
