@@ -422,6 +422,11 @@
     return Number.isNaN(Date.parse(value)) ? '' : value;
   }
 
+  function isEmoji(str) {
+    // Check if string contains only emoji graphemes using a practical regex
+    return /^(\p{Emoji}|\p{Emoji_Modifier}|\p{Emoji_Component}|\p{Emoji_Presentation}|\u200D|\uFE0F)+$/u.test(str);
+  }
+
   function toIcon(value) {
     var text = toText(value, 12);
     return text ? (firstGrapheme(text) || DEFAULT_ICON) : DEFAULT_ICON;
@@ -1619,6 +1624,16 @@
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();
       runToastAction();
+    });
+
+    // Limit emoji inputs to a single emoji, no letters or numbers
+    byId('shoe-icon').addEventListener('input', function () {
+      var first = firstGrapheme(this.value);
+      this.value = (first && isEmoji(first)) ? first : DEFAULT_ICON;
+    });
+    byId('edit-shoe-icon-input').addEventListener('input', function () {
+      var first = firstGrapheme(this.value);
+      this.value = (first && isEmoji(first)) ? first : DEFAULT_ICON;
     });
   }
 
