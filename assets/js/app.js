@@ -40,8 +40,8 @@
   var KM_PER_MI = 1.609344;
   var MILE_REGIONS = ['US', 'GB', 'LR', 'MM'];
   // INFO: Same set as FinanzGecko. Display only – prices are never converted.
-  var CURRENCIES = ['EUR', 'USD', 'CHF', 'GBP', 'JPY', 'SEK', 'NOK', 'DKK', 'ISK', 'CAD'];
-  var REGION_CURRENCY = { CH: 'CHF', LI: 'CHF', US: 'USD', GB: 'GBP', JP: 'JPY', SE: 'SEK', NO: 'NOK', DK: 'DKK' };
+  var CURRENCIES = ['EUR', 'USD', 'GBP', 'SEK', 'NOK', 'DKK', 'ISK', 'CAD', 'AUD', 'NZD', 'JPY', 'CHF'];
+  var REGION_CURRENCY = { CH: 'CHF', LI: 'CHF', US: 'USD', GB: 'GBP', JP: 'JPY', SE: 'SEK', NO: 'NOK', DK: 'DKK', NZ: 'NZD', AU: 'AUD', IS: 'ISK', CA: 'CAD' };
 
   var TABS = ['shoes', 'stats'];
   var TAB_HASH = { shoes: '#schuhe', stats: '#statistik' };
@@ -427,6 +427,11 @@
     return /^(\p{Emoji}|\p{Emoji_Modifier}|\p{Emoji_Component}|\p{Emoji_Presentation}|\u200D|\uFE0F)+$/u.test(str);
   }
 
+  function isSingleEmoji(str) {
+    // Check if the entire string is exactly one emoji grapheme
+    return isEmoji(str) && firstGrapheme(str) === str;
+  }
+
   function toIcon(value) {
     var text = toText(value, 12);
     return text ? (firstGrapheme(text) || DEFAULT_ICON) : DEFAULT_ICON;
@@ -629,7 +634,7 @@
     shoesEmpty.hidden = shoes.length > 0 || onboarding;
     byId('empty-action').hidden = archived;
 
-    byId('reorder-hint').textContent = t(archived ? 'shoes.reorderHintArchive' : 'shoes.reorderHint');
+    byId('reorder-hint').textContent = t(archived ? (shoes.length === 1 ? 'shoes.reorderHintArchiveSingle' : 'shoes.reorderHintArchive') : (shoes.length === 1 ? 'shoes.reorderHintSingle' : 'shoes.reorderHint'));
     byId('reorder-hint').hidden = shoes.length === 0;
     byId('shoes-filter').hidden = state.shoes.length === 0;
     byId('shoes-head').hidden = onboarding;
@@ -1628,12 +1633,10 @@
 
     // Limit emoji inputs to a single emoji, no letters or numbers
     byId('shoe-icon').addEventListener('input', function () {
-      var first = firstGrapheme(this.value);
-      this.value = (first && isEmoji(first)) ? first : DEFAULT_ICON;
+      this.value = isSingleEmoji(this.value) ? this.value : DEFAULT_ICON;
     });
     byId('edit-shoe-icon-input').addEventListener('input', function () {
-      var first = firstGrapheme(this.value);
-      this.value = (first && isEmoji(first)) ? first : DEFAULT_ICON;
+      this.value = isSingleEmoji(this.value) ? this.value : DEFAULT_ICON;
     });
   }
 

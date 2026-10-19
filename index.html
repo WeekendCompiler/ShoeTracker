@@ -676,6 +676,8 @@
           <option value="DKK">DKK – Kr</option>
           <option value="ISK">ISK – Kr</option>
           <option value="CAD">CAD – CA$</option>
+          <option value="AUD">AUD – AU$</option>
+          <option value="NZD">NZD – $</option>
           <option value="JPY">JPY – ¥</option>
           <option value="CHF">CHF - FR</option>
         </select>
@@ -698,13 +700,13 @@
           <input class="wear-zone__range wear-zone__range--ok wear-zone__range--in-bar" type="range" id="wear-zone-ok" name="wear-zone-ok" min="0" max="100" value="75" step="5" data-wear-zone>
           <input class="wear-zone__range wear-zone__range--warn wear-zone__range--in-bar" type="range" id="wear-zone-warn" name="wear-zone-warn" min="0" max="100" value="90" step="5" data-wear-zone>
         </div>
-        <p class="hint" data-i18n="settings.wearZonesHint">Du kannst die Grenzwerte für die Verschleißbereiche deiner Schuhe ändern. Verschiebe dazu die Slider oder belasse es bei der 25|75|90 Standarteinstellung (empfohlen).</p>
+        <p class="hint" data-i18n="settings.wearZonesHint">Du kannst die Grenzen für die Verschleißbereiche deiner Schuhe ändern. Verschiebe dazu die Slider oder belasse es bei der 25|75|90 Standarteinstellung (empfohlen).</p>
         <div class="wear-zones__controls">
           <div class="field">
             <label class="wear-zone__label" for="wear-zone-fresh">
               <span class="wear-zone__label-text">
                 <span class="badge badge--fresh" data-i18n="wear.fresh">Frisch</span>
-                <span class="wear-zone__range"><output id="wear-zone-fresh-min">0%</output> bis <output id="wear-zone-fresh-output" for="wear-zone-fresh">25%</output></span>
+                <span class="wear-zone__range"><output id="wear-zone-fresh-min">0%</output><span data-i18n="settings.wearZoneFresh"> to </span><output id="wear-zone-fresh-output" for="wear-zone-fresh">25%</output></span>
               </span>
             </label>
           </div>
@@ -712,7 +714,7 @@
             <label class="wear-zone__label" for="wear-zone-ok">
               <span class="wear-zone__label-text">
                 <span class="badge badge--ok" data-i18n="wear.ok">Gut</span>
-                <span class="wear-zone__range"><output id="wear-zone-fresh-output-min" for="wear-zone-fresh">25%</output> bis <output id="wear-zone-ok-output" for="wear-zone-ok">75%</output></span>
+                <span class="wear-zone__range"><output id="wear-zone-fresh-output-min" for="wear-zone-fresh">25%</output><span data-i18n="settings.wearZoneOk"> to </span><output id="wear-zone-ok-output" for="wear-zone-ok">75%</output></span>
               </span>
             </label>
           </div>
@@ -720,7 +722,7 @@
             <label class="wear-zone__label" for="wear-zone-warn">
               <span class="wear-zone__label-text">
                 <span class="badge badge--warn" data-i18n="wear.warn">Bald fällig</span>
-                <span class="wear-zone__range"><output id="wear-zone-ok-output-min" for="wear-zone-ok">75%</output> bis <output id="wear-zone-warn-output" for="wear-zone-warn">90%</output></span>
+                <span class="wear-zone__range"><output id="wear-zone-ok-output-min" for="wear-zone-ok">75%</output><span data-i18n="settings.wearZoneWarn"> to </span><output id="wear-zone-warn-output" for="wear-zone-warn">90%</output></span>
               </span>
             </label>
           </div>
