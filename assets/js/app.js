@@ -449,7 +449,7 @@
     var rawPercent = maxKm > 0 ? (currentKm / maxKm) * 100 : 0;
     var percent = Math.min(rawPercent, 100);
     var displayPercent = Math.round(rawPercent);
-    var key = rawPercent >= 90 ? 'worn' : (rawPercent >= 75 ? 'warn' : 'ok');
+    var key = rawPercent >= 90 ? 'worn' : (rawPercent >= 75 ? 'warn' : (rawPercent >= 25 ? 'ok' : 'fresh'));
     return { percent: percent, displayPercent: displayPercent, key: key, label: t('wear.' + key) };
   }
 
@@ -551,7 +551,8 @@
     shoesEmpty.hidden = shoes.length > 0 || onboarding;
     byId('empty-action').hidden = archived;
 
-    byId('reorder-hint').hidden = shoes.length < 2;
+    byId('reorder-hint').textContent = t(archived ? 'shoes.reorderHintArchive' : 'shoes.reorderHint');
+    byId('reorder-hint').hidden = shoes.length === 0;
     byId('shoes-filter').hidden = state.shoes.length === 0;
     byId('shoes-head').hidden = onboarding;
 
@@ -563,7 +564,7 @@
   function buildShoeCard(shoe, totalKm) {
     var wear = wearOf(totalKm, shoe.maxKm);
 
-    var item = el('li', 'shoe');
+    var item = el('li', 'shoe shoe--' + wear.key);
     item.dataset.id = shoe.id;
 
     var head = el('div', 'shoe__head');
