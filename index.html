@@ -73,7 +73,7 @@
     "Kilometerstand pro Laufschuh",
     "Verschleißwarnung ab 75 Prozent",
     "Läufe mit Datum und Notizen erfassen",
-    "Statistik und Verschleiß-Übersicht",
+    "Statistik und Verschleiß Übersicht",
     "CSV-Export und JSON-Backup",
     "Offline nutzbar, installierbar als App",
     "Oberfläche auf Deutsch und Englisch",
@@ -298,14 +298,14 @@
     </div>
 
     <section class="card">
-      <h3 class="section-title" data-i18n="stats.wear">Verschleiß-Übersicht</h3>
+      <h3 class="section-title" data-i18n="stats.wear">Verschleiß Übersicht</h3>
       <div class="wear-list" id="wear-distribution"></div>
     </section>
 
     <section class="card">
-      <h3 class="section-title" data-i18n="stats.backupTitle">Daten &amp; Backup</h3>
+      <h3 class="section-title" data-i18n="stats.backupTitle">Datensicherung</h3>
       <p class="hint" data-i18n="stats.backupHint">
-        Alle Daten liegen ausschließlich lokal in deinem Browser. Keine Cloud, keine Server. Darum sind regelmäßige Backups die einzige Absicherung gegen Datenverlust.
+        Alle Daten liegen ausschließlich lokal in deinem Browser. Keine Cloud, keine Server. Darum sind regelmäßige Backups die einzige Absicherung gegen Datenverlust. Ein bereits vorhandes Backup kannst du hier auch wieder einspielen.
       </p>
       <div class="row">
         <button type="button" class="btn btn--tonal" id="export-json-btn">
@@ -323,14 +323,6 @@
       </button>
       <input type="file" id="import-file" accept="application/json,.json" class="visually-hidden" tabindex="-1" aria-hidden="true">
 
-      <hr class="rule">
-      <p class="hint" data-i18n="stats.deleteHint">
-        Alle Daten werden endgültig aus deinem Browser gelöscht. Vorher exportierte Backups bleiben aber erhalten und lassen sich auf Wunsch wieder importieren.
-      </p>
-      <button type="button" class="btn btn--danger btn--block btn--small" id="delete-all-btn">
-        <svg class="icon icon--sm" aria-hidden="true"><use href="#i-trash"/></svg>
-        <span data-i18n="stats.deleteAll">Alle Daten von diesem Gerät löschen</span>
-      </button>
     </section>
     <footer class="site-foot">
       <p class="hint">Run. Sleep. Repeat. Always keep your shoes neat!</p>
@@ -684,6 +676,7 @@
         <p class="hint" id="currency-hint" data-i18n="settings.currencyHint">Bei Auswahl einer anderen Währung werden bereits gespeicherte Preise nicht umgerechnet. Es ändert sich nur die Anzeige der Währung.</p>
       </div>
 
+      <hr class="rule">
       <section class="wear-zones" aria-labelledby="wear-zones-title">
         <h3 class="field__label" id="wear-zones-title" data-i18n="settings.wearZones">Verschleißbereiche</h3>
         <div class="wear-zones__preview" id="wear-zones-preview">
@@ -737,12 +730,24 @@
         </div>
       </section>
 
+      <hr class="rule">
       <fieldset class="segmented">
         <legend class="field__label" data-i18n="settings.theme">Design</legend>
         <label><input type="radio" name="theme" value="system"><span data-i18n="settings.system">System</span></label>
         <label><input type="radio" name="theme" value="light"><span data-i18n="settings.light">Hell</span></label>
         <label><input type="radio" name="theme" value="dark"><span data-i18n="settings.dark">Dunkel</span></label>
       </fieldset>
+
+      <hr class="rule">
+      <h3 class="field__label" data-i18n="stats.deleteTitle">Datenlöschung</h3>
+      <p class="hint" data-i18n="stats.deleteHint">
+        Alle Daten werden endgültig aus deinem Browser gelöscht. Vorher exportierte Backups bleiben aber erhalten und lassen sich auf Wunsch wieder importieren.
+      </p>
+      <button type="button" class="btn btn--danger btn--block btn--small" id="delete-all-btn">
+        <svg class="icon icon--sm" aria-hidden="true"><use href="#i-trash"/></svg>
+        <span data-i18n="stats.deleteAll">Alle Daten von diesem Gerät löschen</span>
+      </button>
+
     </form>
     <footer class="site-foot">
       <nav class="site-foot__nav" aria-label="Weitere Informationen" data-i18n-attr="aria-label=foot.nav">

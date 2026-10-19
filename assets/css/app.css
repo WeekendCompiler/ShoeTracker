@@ -803,8 +803,9 @@ textarea.input { min-height: 72px; resize: vertical; }
 /* ---------- Onboarding ---------- */
 .onboarding {
   display: grid;
-  gap: 14px;
+  gap: 16px;
   padding: 20px;
+  margin-bottom: -20px;
   border: 1px solid var(--surface-variant);
   border-radius: var(--radius-l);
   background: var(--surface-1);
@@ -866,9 +867,14 @@ textarea.input { min-height: 72px; resize: vertical; }
   max-width: var(--page);
   margin-inline: auto;
   margin-top: 0;
-  padding: 16px 16px calc(24px + env(safe-area-inset-bottom));
-  border-top: 1px solid var(--surface-variant);
+  padding: 0 16px calc(24px + env(safe-area-inset-bottom));
+  border-top: 0;
   text-align: center;
+}
+
+#dialog-settings .site-foot {
+  border-top: 1px solid var(--surface-variant);
+  padding-top: 16px;
 }
 .site-foot__nav {
   display: flex;
@@ -881,13 +887,14 @@ textarea.input { min-height: 72px; resize: vertical; }
   align-items: center;
   min-height: 36px;
   padding-inline: 8px;
+  border: 1px solid var(--outline-variant);
   border-radius: 8px;
   color: var(--on-surface-variant);
   font-size: 0.78rem;
   font-weight: 500;
   text-decoration: none;
 }
-.site-foot__nav a:hover { color: var(--primary); background: var(--surface-variant); }
+.site-foot__nav a:hover { background: var(--surface-variant); }
 .site-foot__meta { max-width: 34ch; font-size: 0.7rem; color: var(--on-surface-variant); }
 
 /* ---------- Sub pages (FAQ, privacy) ---------- */
