@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- WARNING: Same strict CSP as the app – no external sources, no inline script or style. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+
+<title>Privacy – ShoeTracker</title>
+<meta name="description" content="ShoeTracker stores all data locally in your browser only. No server, no cookies, no trackers. Which storage keys are used and how to delete them.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://weekendcompiler.github.io/ShoeTracker/en/privacy.html">
+<link rel="alternate" hreflang="de" href="https://weekendcompiler.github.io/ShoeTracker/datenschutz.html" data-href="../datenschutz.html">
+<link rel="alternate" hreflang="en" href="https://weekendcompiler.github.io/ShoeTracker/en/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://weekendcompiler.github.io/ShoeTracker/en/privacy.html">
+<link rel="help" href="./faq.html">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:site_name" content="ShoeTracker">
+<meta property="og:title" content="Privacy – ShoeTracker">
+<meta property="og:description" content="All data stays local in your browser. No server, no cookies, no trackers.">
+<meta property="og:url" content="https://weekendcompiler.github.io/ShoeTracker/en/privacy.html">
+<meta property="og:image" content="https://weekendcompiler.github.io/ShoeTracker/assets/og/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ShoeTracker logo: red running shoe with a progress bar, next to the German slogan “Kilometer deiner Laufschuhe im Blick – offline &amp; privat”.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://weekendcompiler.github.io/ShoeTracker/assets/og/og-image.png">
+<meta name="twitter:image:alt" content="ShoeTracker logo: red running shoe with a progress bar, next to the German slogan “Kilometer deiner Laufschuhe im Blick – offline &amp; privat”.">
+
+<meta name="theme-color" content="#fdf8f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161212" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+
+<link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="../assets/icons/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/css/app.css">
+<script src="../assets/js/boot.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ShoeTracker", "item": "https://weekendcompiler.github.io/ShoeTracker/" },
+    { "@type": "ListItem", "position": 2, "name": "Privacy" }
+  ]
+}
+</script>
+</head>
+<body class="page">
+
+<header class="page__bar">
+  <a class="page__back" href="../">
+    <svg class="icon icon--sm" aria-hidden="true" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 5l-7 7 7 7"/>
+    </svg>
+    Back to the app
+  </a>
+</header>
+
+<main class="page__main">
+
+  <h1 class="page__title">Privacy</h1>
+  <p class="page__lead">
+    In short: ShoeTracker has no server. Everything you enter stays in your browser and is never sent anywhere.
+  </p>
+
+  <section class="page__section">
+    <h2 class="page__h2">What data is stored</h2>
+    <p class="page__text">
+      ShoeTracker does not process any personal data on a server – there is none. Everything you enter is kept in your browser’s <code>localStorage</code> under six keys:</p>
+    <ul class="page__list">
+      <li><code>shoe_tracker_data</code> – your shoes and runs</li>
+      <li><code>shoe_tracker_theme</code> – the light or dark theme you chose</li>
+      <li><code>shoe_tracker_onboarded</code> – whether the introduction has already been shown</li>
+      <li><code>shoe_tracker_lang</code> – the language you chose (German or English)</li>
+      <li><code>shoe_tracker_unit</code> – the distance unit you chose (kilometres or miles)</li>
+      <li><code>shoe_tracker_currency</code> – the currency you chose for displaying prices</li>
+    </ul>
+    <p class="page__text">
+      This data only leaves your device if you export a backup yourself and pass the file on.
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">What does not happen</h2>
+    <p class="page__text">
+      No cookies are set, no trackers are loaded, and no fonts, scripts or images are fetched from third-party servers. The page uses only your device’s system font. There are no analytics tools, no ad networks, no user account and no sign-in.
+    </p>
+    <p class="page__text">
+      This is enforced technically by a strict Content Security Policy (<code>default-src 'none'</code>): the browser refuses every connection to a third-party source, even if the code contained one.
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">Deleting your data</h2>
+    <p class="page__text">
+      In the app, under <b>Statistics → Data &amp; backup</b>, “Delete all data from this device” irrevocably removes everything stored – all of the keys listed above. Afterwards the app looks as it did on first launch. Useful, for example, before you hand the device on.
+    </p>
+    <p class="page__text">
+      You get the same result by clearing the site data for this page in your browser settings. Backup files you have already exported are not affected.
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">What the app cannot prevent</h2>
+    <p class="page__text">
+      For technical reasons the host of this page – as with any website visit – sees your IP address and browser type. The page is served via GitHub Pages; the app itself has no influence on that. After the first visit ShoeTracker can be installed and used offline, so later launches need no connection to the host.
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">Source code</h2>
+    <p class="page__text">
+      ShoeTracker is open source. If you want to verify that nothing is transmitted, the complete code is in the <a href="https://github.com/WeekendCompiler/ShoeTracker" rel="noopener">repository on GitHub</a> – no build step and no dependencies, exactly as it is served.
+    </p>
+  </section>
+
+  <section class="page__section">
+    <h2 class="page__h2">Language version</h2>
+    <p class="page__text">
+      This is a translation for convenience. If the two versions differ, the <a href="../datenschutz.html" hreflang="de" data-lang="de">German privacy policy</a> applies.
+    </p>
+  </section>
+
+  <p class="page__cta">
+    <a class="btn btn--filled" href="../">Open ShoeTracker</a>
+  </p>
+
+</main>
+
+<footer class="site-foot">
+  <nav class="site-foot__nav" aria-label="More information">
+    <a href="../">Back to the app</a>
+    <a href="./faq.html">FAQ</a>
+    <a href="https://github.com/WeekendCompiler/ShoeTracker" rel="noopener">Source code</a>
+    <a href="../datenschutz.html" hreflang="de" lang="de" data-lang="de">Deutsch</a>
+  </nav>
+  <p class="site-foot__meta">Free · ad-free · no account · local data</p>
+</footer>
+
+</body>
+</html>

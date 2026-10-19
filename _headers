@@ -1,0 +1,21 @@
+# Security headers for Netlify / Cloudflare Pages (GitHub Pages ignores this file).
+# INFO: The CSP is also a <meta> in index.html; as a header it applies earlier and
+# can set frame-ancestors (ignored in <meta>).
+
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=(), browsing-topics=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# WARNING: The service worker must never come from the HTTP cache, or updates get stuck.
+/sw.js
+  Cache-Control: no-cache
+
+# INFO: Assets only change with a new file name or release.
+/assets/*
+  Cache-Control: public, max-age=604800
