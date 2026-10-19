@@ -352,8 +352,8 @@ html[data-i18n-pending] body { visibility: hidden; }
   cursor: pointer;
   transition: background-color 0.15s, color 0.15s;
 }
-.segmented > label:first-of-type span { margin-left: 0; border-radius: 999px 0 0 999px; }
-.segmented > label:last-of-type span { border-radius: 0 999px 999px 0; }
+.segmented > label:first-of-type span { margin-left: 0; border-radius: var(--radius-s) 0 0 var(--radius-s); }
+.segmented > label:last-of-type span { border-radius: 0 var(--radius-s) var(--radius-s) 0; }
 .segmented span:hover { background: var(--surface-variant); }
 .segmented input:checked + span {
   background: var(--primary-container);
@@ -579,6 +579,8 @@ html[data-i18n-pending] body { visibility: hidden; }
   font-size: 0.9rem;
   transition: border-color 0.15s;
 }
+.input#currency-select { border-color: #FB071A; }
+.input#currency-select:focus { border-color: #FB071A; box-shadow: inset 0 0 0 1px #FB071A; }
 .input:focus { outline: none; border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
 .input:user-invalid { border-color: var(--error); }
 textarea.input { min-height: 72px; resize: vertical; }
@@ -709,6 +711,7 @@ textarea.input { min-height: 72px; resize: vertical; }
   gap: 12px;
 }
 .dialog__title { font-size: 1.05rem; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere; }
+.dialog__title--panel { font-size: 1.25rem; }
 .dialog__text { font-size: 0.875rem; color: var(--on-surface-variant); }
 .dialog__actions { display: flex; gap: 10px; }
 .dialog__actions .btn { flex: 1; }
