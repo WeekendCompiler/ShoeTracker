@@ -960,3 +960,76 @@ textarea.input { min-height: 72px; resize: vertical; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------- Emoji Picker ---------- */
+.dialog--emoji-picker {
+  width: 95vw;
+  max-width: 420px;
+  max-height: 80vh;
+}
+
+.dialog--emoji-picker .dialog__inner {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(80vh - 40px);
+}
+
+.dialog--emoji-picker .dialog__head {
+  flex-shrink: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.emoji-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+
+
+.emoji-picker__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+  gap: 4px;
+  overflow-y: auto;
+  padding: 4px;
+  min-height: 200px;
+  max-height: 400px;
+}
+
+.emoji-picker__emoji-btn {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: var(--radius-s);
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.emoji-picker__emoji-btn:hover {
+  background: var(--surface-2);
+  transform: scale(1.1);
+}
+
+.emoji-picker__emoji-btn:active {
+  background: var(--surface-3);
+  transform: scale(0.95);
+}
+
+.emoji-picker__emoji-btn.selected {
+  background: var(--primary-container);
+}
+
+@media (min-width: 640px) {
+  .dialog--emoji-picker {
+    width: 420px;
+    max-height: 600px;
+  }
+  
+  .emoji-picker__grid {
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    max-height: 450px;
+  }
+}

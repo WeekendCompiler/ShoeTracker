@@ -67,6 +67,317 @@
     dateFormat = new Intl.DateTimeFormat(locale, { day: '2-digit', month: '2-digit', year: 'numeric' });
   }
 
+  // -------------------------------------------------------------- Emoji Picker
+
+  var EMOJI_LIST = [
+    '🏃',
+    '🏃‍♀️',
+    '👟',
+    '💨',
+    '🏎️',
+    '🚀',
+    '🧨',
+    '💣',
+    '💥',
+    '🔥',
+    '💰',
+    '❤️',
+    '🏅',
+    '🏆',
+    '🥊',
+    '🎯',
+    '🥇',
+    '🥈',
+    '🥉',
+    '🎈',
+    '🎉',
+    '🏁',
+    '🐆',
+    '🐎',
+    '🐌',
+    '🐢',
+    '🐗',
+    '🐻',
+    '🦁',
+    '🦥',
+    '🌻',
+    '🌲',
+    '🌳',
+    '🏔️',
+    '⛰️',
+    '🏖️',
+    '☀️',
+    '☁️',
+    '🌧️',
+    '⛈️',
+    '☔',
+    '🍁',
+    '🍂',
+    '💨',
+    '🌪️',
+    '⚡',
+    '❄️',
+    '☃️',
+    '🌈',
+    '😊',
+    '😍',
+    '🤩',
+    '🤑',
+    '🥳',
+    '🤤',
+    '🤓',
+    '😎',
+    '🤠',
+    '🥵',
+    '🥶',
+    '😸',
+    '👻',
+    '💀',
+    '☠️',
+    '👽',
+    '🎅',
+    '👍',
+    '👌',
+    '👏',
+    '🙌',
+    '💪',
+    '💩'
+  ];
+
+  var emojiPicker = {
+    activeField: null,
+    dialog: null,
+    grid: null,
+    selecting: false,
+    
+    init: function() {
+      this.dialog = byId('dialog-emoji-picker');
+      this.grid = byId('emoji-grid');
+      
+      // Set up event listeners
+      if (this.dialog) {
+        // Close button
+        var closeBtn = this.dialog.querySelector('[data-close-emoji-picker]');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', this.close.bind(this));
+        }
+        
+        // Close on backdrop click
+        this.dialog.addEventListener('click', function(e) {
+          if (e.target === this.dialog) this.close();
+        }.bind(this));
+      }
+      
+      // Set up icon fields
+      var iconFields = document.querySelectorAll('input[id="shoe-icon"], input[id="edit-shoe-icon-input"]');
+      iconFields.forEach(function(field) {
+        field.addEventListener('focus', this.open.bind(this, field));
+        // Also handle click for touch devices
+        field.addEventListener('click', this.open.bind(this, field));
+        // Handle paste and input events to enforce single emoji
+        field.addEventListener('input', function(e) {
+          this.enforceSingleEmoji(e);
+          this.updateIconPreview(field);
+        }.bind(this));
+        field.addEventListener('paste', this.handlePaste.bind(this));
+      }.bind(this));
+      
+      // Render emojis initially
+      this.renderEmojis();
+    },
+    
+    open: function(field) {
+      // Don't open if we're in the middle of selecting an emoji
+      if (this.selecting) return;
+      
+      this.activeField = field;
+      // Save current cursor position and scroll
+      field.blur();
+      
+      // Set default value if empty
+      if (!field.value || field.value.trim() === '') {
+        field.value = DEFAULT_ICON;
+        this.updateIconPreview(field);
+      }
+      
+      // Show dialog
+      if (this.dialog && !this.dialog.open) {
+        this.dialog.showModal();
+        // Render all emojis and select the current emoji in the grid if possible
+        this.renderEmojis();
+        this.highlightSelectedEmoji(field.value);
+      }
+    },
+    
+    close: function() {
+      if (this.dialog && this.dialog.open) {
+        this.dialog.close();
+      }
+    },
+    
+    selectEmoji: function(emoji) {
+      if (this.activeField) {
+        // Set flag to prevent open() from re-opening during selection
+        this.selecting = true;
+        
+        this.activeField.value = emoji;
+        this.enforceSingleEmoji({ target: this.activeField });
+        
+        // Close the dialog
+        this.close();
+        
+        // Focus the field after dialog is closed, then clear flag
+        var _this = this;
+        setTimeout(function() {
+          if (_this.activeField) {
+            _this.activeField.focus();
+          }
+          _this.selecting = false;
+        }, 0);
+      }
+    },
+    
+    enforceSingleEmoji: function(event) {
+      var field = event ? event.target : this.activeField;
+      if (!field) return;
+      
+      var value = field.value;
+      // Get all grapheme clusters (emojis can be multi-codepoint)
+      var graphemes = this.splitGraphemes(value);
+      
+      // If more than one emoji/grapheme, keep only the last one
+      if (graphemes.length > 1) {
+        // Find the last emoji (skip non-emoji characters)
+        var lastEmoji = null;
+        for (var i = graphemes.length - 1; i >= 0; i--) {
+          if (this.isEmoji(graphemes[i])) {
+            lastEmoji = graphemes[i];
+            break;
+          }
+        }
+        // If we found an emoji, use it, otherwise keep the last character
+        field.value = lastEmoji || graphemes[graphemes.length - 1];
+      }
+      
+      // Ensure we don't exceed maxlength
+      if (field.maxLength && field.value.length > field.maxLength) {
+        field.value = field.value.slice(0, field.maxLength);
+      }
+    },
+    
+    handlePaste: function(event) {
+      var clipboardData = event.clipboardData || window.clipboardData;
+      if (clipboardData) {
+        var pastedText = clipboardData.getData('text');
+        if (pastedText) {
+          // Filter to keep only the last emoji
+          var graphemes = this.splitGraphemes(pastedText);
+          var lastEmoji = null;
+          for (var i = graphemes.length - 1; i >= 0; i--) {
+            if (this.isEmoji(graphemes[i])) {
+              lastEmoji = graphemes[i];
+              break;
+            }
+          }
+          // Prevent default paste and insert only the last emoji
+          event.preventDefault();
+          if (lastEmoji) {
+            document.execCommand('insertText', false, lastEmoji);
+          }
+        }
+      }
+    },
+    
+    splitGraphemes: function(str) {
+      // Use Intl.Segmenter if available for proper grapheme splitting
+      if (typeof Intl.Segmenter === 'function') {
+        var segments = new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(str);
+        return Array.from(segments, function(s) { return s.segment; });
+      }
+      // Fallback: simple array split (won't work perfectly for all emojis)
+      return Array.from(str);
+    },
+    
+    isEmoji: function(char) {
+      // Simple check: most emojis are in specific unicode ranges
+      // This is a basic check and might not catch all emojis
+      var code = char.codePointAt(0);
+      // Common emoji ranges
+      return (
+        (code >= 0x1F300 && code <= 0x1F5FF) ||  // Misc Symbols and Pictographs
+        (code >= 0x1F600 && code <= 0x1F64F) ||  // Emoticons
+        (code >= 0x1F680 && code <= 0x1F6FF) ||  // Transport and Map Symbols
+        (code >= 0x1F700 && code <= 0x1F77F) ||  // Alchemical Symbols
+        (code >= 0x1F780 && code <= 0x1F7FF) ||  // Geometric Shapes Extended
+        (code >= 0x1F800 && code <= 0x1F8FF) ||  // Supplemental Arrows-C
+        (code >= 0x1F900 && code <= 0x1F9FF) ||  // Supplemental Symbols and Pictographs
+        (code >= 0x1FA00 && code <= 0x1FA6F) ||  // Chess Symbols
+        (code >= 0x1FA70 && code <= 0x1FAFF) ||  // Symbols and Pictographs Extended-A
+        (code >= 0x1F000 && code <= 0x1F02F) ||  // Mahjong Tiles
+        (code >= 0x2600 && code <= 0x26FF) ||   // Misc Symbols
+        (code >= 0x2700 && code <= 0x27BF) ||   // Dingbats
+        (code >= 0xFE00 && code <= 0xFE0F) ||   // Variation Selectors
+        (code >= 0x200D && code <= 0x200D) ||   // Zero Width Joiner
+        (code >= 0x2640 && code <= 0x2642) ||   // Gender symbols
+        (code >= 0x23E9 && code <= 0x23F3) ||   // Misc Technical
+        (code >= 0x25AA && code <= 0x25AB) ||   // Black/White circles
+        (code >= 0x25B6 && code <= 0x25C0) ||   // Triangles
+        (code >= 0x25FB && code <= 0x25FE) ||   // White/Black squares
+        (code >= 0x2602 && code <= 0x2604) ||   // Umbrella, etc
+        (code >= 0x2614 && code <= 0x2615) ||   // Umbrella with rain, etc
+        (code >= 0x2648 && code <= 0x2653) ||   // Aries-Taurus
+        (code >= 0x267F && code <= 0x2693) ||   // Chinese characters
+        (code >= 0x2694 && code <= 0x269C) ||   // Gear, etc
+        (code >= 0x26A0 && code <= 0x26BC) ||   // Warning signs
+        (code >= 0x26C4 && code <= 0x26CD) ||   // Snowman
+        (code >= 0x26CE && code <= 0x26D4) ||   // Ophiuchus
+        (code >= 0x26E9 && code <= 0x26EA) ||   // Shinto shrine
+        (code >= 0x26F0 && code <= 0x26F5) ||   // Mountain
+        (code >= 0x26F7 && code <= 0x26FA) ||   // Ski
+        (code >= 0x26FD && code <= 0x26FD) ||   // Fuel pump
+        (code >= 0x2702 && code <= 0x2702) ||   // Scissors
+        (code >= 0x2708 && code <= 0x270D) ||   // Airplane
+        (code >= 0x270F && code <= 0x270F) ||   // Pencil
+        false
+      );
+    },
+    
+    renderEmojis: function() {
+      if (!this.grid) return;
+      
+      this.grid.innerHTML = '';
+      
+      EMOJI_LIST.forEach(function(emoji) {
+        var btn = el('button', 'emoji-picker__emoji-btn');
+        btn.type = 'button';
+        btn.textContent = emoji;
+        btn.setAttribute('aria-label', 'Emoji: ' + emoji);
+        btn.dataset.emoji = emoji;
+        btn.addEventListener('click', this.selectEmoji.bind(this, emoji));
+        this.grid.appendChild(btn);
+      }.bind(this));
+    },
+    
+    highlightSelectedEmoji: function(emoji) {
+      // Find and highlight the selected emoji in the grid
+      var buttons = this.grid.querySelectorAll('.emoji-picker__emoji-btn');
+      buttons.forEach(function(btn) {
+        btn.classList.toggle('selected', btn.dataset.emoji === emoji);
+      });
+    },
+    
+    updateIconPreview: function(field) {
+      // Update the preview span when input changes
+      var previewId = field.id === 'shoe-icon' ? null : 'edit-shoe-icon';
+      if (previewId) {
+        var previewEl = byId(previewId);
+        if (previewEl) {
+          previewEl.textContent = field.value || DEFAULT_ICON;
+        }
+      }
+    }
+  };
+
   // ------------------------------------------------------------------ Settings
 
   /** Translates a key from i18n.js, replacing {placeholders}; falls back to German. */
@@ -424,7 +735,20 @@
 
   function toIcon(value) {
     var text = toText(value, 12);
-    return text ? (firstGrapheme(text) || DEFAULT_ICON) : DEFAULT_ICON;
+    if (!text) return DEFAULT_ICON;
+    
+    // Get the last emoji from the text
+    var graphemes = (emojiPicker && emojiPicker.splitGraphemes) ? emojiPicker.splitGraphemes(text) : Array.from(text);
+    var lastEmoji = null;
+    
+    for (var i = graphemes.length - 1; i >= 0; i--) {
+      if (emojiPicker && emojiPicker.isEmoji && emojiPicker.isEmoji(graphemes[i])) {
+        lastEmoji = graphemes[i];
+        break;
+      }
+    }
+    
+    return lastEmoji || firstGrapheme(text) || DEFAULT_ICON;
   }
 
   /**
@@ -1626,6 +1950,7 @@
 
   function init() {
     loadSettings();
+    emojiPicker.init();
     load();
     syncOnboarding();
     syncFilterChips();
