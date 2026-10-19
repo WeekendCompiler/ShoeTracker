@@ -1490,9 +1490,11 @@
       event.target.value = '';
     });
 
-    byId('settings-btn').addEventListener('click', function () {
-      syncSettingsForm();
-      openDialog(byId('dialog-settings'));
+    ['settings-btn', 'onboarding-settings-btn'].forEach(function (id) {
+      byId(id).addEventListener('click', function () {
+        syncSettingsForm();
+        openDialog(byId('dialog-settings'));
+      });
     });
     byId('settings-form').addEventListener('change', function (event) {
       changeSetting(event.target.name, event.target.value);

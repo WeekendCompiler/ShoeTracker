@@ -112,6 +112,9 @@
   <symbol id="i-plus-circle" viewBox="0 0 24 24">
     <circle cx="12" cy="12" r="9"/><path d="M12 8.5v7M8.5 12h7"/>
   </symbol>
+  <symbol id="i-search" viewBox="0 0 24 24">
+    <circle cx="10.8" cy="10.8" r="7.3"/><path d="M5.6 16 0.8 20.8"/>
+  </symbol>
   <symbol id="i-chart" viewBox="0 0 24 24">
     <path d="M3 21h18"/><path d="M6.5 21v-6.5M12 21V5.5M17.5 21v-10"/>
   </symbol>
@@ -177,34 +180,40 @@
       <p class="onboarding__lead" data-i18n="onb.lead" data-i18n-unit>
         Die Dämpfung deiner Laufschuhe hält je nach Modell, Laufstil, Körpergewicht und Untergrund ca. 600 bis 1.000&nbsp;Kilometer. ShoeTracker zeigt dir den Verschleiß. So weißt du genau, wann du neue Schuhe brauchst!
       </p>
+      <div class="onboarding__settings-row">
+        <button type="button" id="onboarding-settings-btn" class="icon-btn" aria-label="Einstellungen" title="Einstellungen" data-i18n-attr="aria-label=settings.title,title=settings.title">
+          <svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg>
+        </button>
+        <p class="onboarding__lead" data-i18n="onb.settings">Lege in den Einstellungen fest in welcher Maßeinheit und Währung du deine Schuhe tracken möchtest und schon kann es losgehen 🏃💨</p>
+      </div>
 
       <ol class="steps">
         <li class="step">
-          <span class="step__num" aria-hidden="true">1</span>
+          <span class="step__icon step__icon--shoe" aria-hidden="true"><svg class="icon"><use href="#i-shoe"/></svg></span>
           <span class="step__body">
             <b class="step__title" data-i18n="onb.s1.title">Schuhe hinzufügen</b>
-            <span class="step__text" data-i18n="onb.s1.text" data-i18n-unit>Gib Details ein wie Modell, Marke, ob der Schuh vorher schon gelaufen wurde und wie lange er halten soll –&nbsp;voreingestellt sind 800&nbsp;km.</span>
+            <span class="step__text" data-i18n="onb.s1.text" data-i18n-unit>Gib Details ein wie Modell, Marke, wie lange der Schuh halten soll und mit welcher Distanz er schon gelaufen wurde –&nbsp;voreingestellt sind 800&nbsp;km 🎯</span>
           </span>
         </li>
         <li class="step">
-          <span class="step__num" aria-hidden="true">2</span>
+          <span class="step__icon step__icon--add" aria-hidden="true"><svg class="icon"><use href="#i-plus-circle"/></svg></span>
           <span class="step__body">
             <b class="step__title" data-i18n="onb.s2.title">Läufe eintragen</b>
-            <span class="step__text" data-i18n="onb.s2.text">Tippe nach jedem Lauf das „+“ auf der Schuhkarte an und erfasse Distanz und Datum.</span>
+            <span class="step__text" data-i18n="onb.s2.text">Tippe nach jedem Lauf den „+“ Button auf der Schuhkarte an und erfasse Distanz und Datum 👍</span>
           </span>
         </li>
         <li class="step">
-          <span class="step__num" aria-hidden="true">3</span>
+          <span class="step__icon step__icon--search" aria-hidden="true"><svg class="icon"><use href="#i-search"/></svg></span>
           <span class="step__body">
             <b class="step__title" data-i18n="onb.s3.title">Verschleiß sehen</b>
-            <span class="step__text" data-i18n="onb.s3.text">Ein farbiger Balken zeigt dir den Zustand deiner Schuhe genau an. Spätestens wenn er ab 90&nbsp;% Laufleistung auf „Verschlissen“ steht, ist es Zeit neue Schuhe zu kaufen!</span>
+            <span class="step__text" data-i18n="onb.s3.text">Ein farbiger Balken zeigt den genauen Zustand deiner Schuhe. Spätestens wenn er „Verschlissen“ ist, solltest du dir neue Schuhe zu kaufen 💰</span>
           </span>
         </li>
         <li class="step">
-          <span class="step__num" aria-hidden="true">4</span>
+          <span class="step__icon step__icon--chart" aria-hidden="true"><svg class="icon"><use href="#i-chart"/></svg></span>
           <span class="step__body">
             <b class="step__title" data-i18n="onb.s4.title">Schuhe auswerten</b>
-            <span class="step__text" data-i18n="onb.s4.text">Wenn du optional auch Kaufdatum und Preis deiner Schuhe eingibst, kannst du exakt sehen, was dich deine Schuhe pro gelaufener Strecke kosten.</span>
+            <span class="step__text" data-i18n="onb.s4.text">Du kannst optional auch Kaufdatum und Preis deiner Schuhe eingeben. Dann siehst du exakt, wie viel deine Schuhe pro gelaufener Strecke kosten 🤓</span>
           </span>
         </li>
       </ol>
@@ -216,7 +225,7 @@
 
       <button type="button" class="btn btn--filled btn--block" id="onboarding-start">
         <svg class="icon icon--sm" aria-hidden="true"><use href="#i-plus"/></svg>
-        <span data-i18n="onb.start">Ersten Schuh hinzufügen</span>
+        <span data-i18n="onb.start">Erste Schuhe hinzufügen</span>
       </button>
     </section>
 
