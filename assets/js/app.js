@@ -61,8 +61,8 @@
     // INFO: English uses the system's regional variant (en-US, en-GB …) when available.
     var system = navigator.language || '';
     var locale = lang === 'de' ? 'de-DE' : (/^en\b/i.test(system) ? system : 'en-GB');
-    numberFormat = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
-    numberFormat1 = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    numberFormat = new Intl.NumberFormat(locale, { maximumFractionDigits: 2 });
+    numberFormat1 = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 2 });
     priceFormat = new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     dateFormat = new Intl.DateTimeFormat(locale, { day: '2-digit', month: '2-digit', year: 'numeric' });
   }
@@ -420,16 +420,6 @@
   function toIsoDate(value) {
     if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return '';
     return Number.isNaN(Date.parse(value)) ? '' : value;
-  }
-
-  function isEmoji(str) {
-    // Check if string contains only emoji graphemes using a practical regex
-    return /^(\p{Emoji}|\p{Emoji_Modifier}|\p{Emoji_Component}|\p{Emoji_Presentation}|\u200D|\uFE0F)+$/u.test(str);
-  }
-
-  function isSingleEmoji(str) {
-    // Check if the entire string is exactly one emoji grapheme
-    return isEmoji(str) && firstGrapheme(str) === str;
   }
 
   function toIcon(value) {
@@ -1629,14 +1619,6 @@
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();
       runToastAction();
-    });
-
-    // Limit emoji inputs to a single emoji, no letters or numbers
-    byId('shoe-icon').addEventListener('input', function () {
-      this.value = isSingleEmoji(this.value) ? this.value : DEFAULT_ICON;
-    });
-    byId('edit-shoe-icon-input').addEventListener('input', function () {
-      this.value = isSingleEmoji(this.value) ? this.value : DEFAULT_ICON;
     });
   }
 
